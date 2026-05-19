@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidence Vault - Justice for Cole Stump</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-bar"></div>
+        <span>Justice for Cole</span>
+      </a>
+      
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="evidence-vault.html">Evidence Vault</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="vigil.html">Digital Vigil</a>
+        <a href="gallery.html">Memorial Gallery</a>
+        <a href="mmip-resources.html">MMIP Resources</a>
+      </nav>
+
+      <button class="menu-toggle">☰</button>
+    </div>
+
+    <nav class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="evidence-vault.html">Evidence Vault</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="vigil.html">Digital Vigil</a>
+      <a href="gallery.html">Memorial Gallery</a>
+      <a href="mmip-resources.html">MMIP Resources</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="container">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Evidence Vault</h1>
+      <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+        Access official documents, witness statements, and public records related to the Cole Stump case. All documents are publicly available.
+      </p>
+
+      <!-- Search and Filter -->
+      <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        <input 
+          type="text" 
+          id="evidence-search" 
+          placeholder="Search documents..." 
+          style="flex: 1; min-width: 200px;"
+        >
+        <select id="category-filter" style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+          <option value="">All Categories</option>
+          <option value="Formal Complaints">Formal Complaints</option>
+          <option value="Witness Statements">Witness Statements</option>
+          <option value="Audit Logs">Audit Logs</option>
+          <option value="Vehicle Trajectory Data">Vehicle Trajectory Data</option>
+        </select>
+      </div>
+
+      <!-- Evidence List -->
+      <div class="evidence-list">
+        <!-- Document 1 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Inquest Transcription - Cole Stump</h4>
+            <p>Official inquest transcription containing complete testimony and proceedings.</p>
+            <span class="evidence-category">Formal Complaints</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">1.0 MB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/inquest-transcription.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/inquest-transcription.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 2 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Duran - Nerbovig PRR Documents</h4>
+            <p>Public Records Request documents from Duran and Nerbovig regarding the Cole Stump case.</p>
+            <span class="evidence-category">Formal Complaints</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">68.5 MB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/duran-nerbovig-prr.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/duran-nerbovig-prr.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 3 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Cole Stump Public Records Request - Complete Documents</h4>
+            <p>Complete PRR documents with official correspondence and investigation records.</p>
+            <span class="evidence-category">Formal Complaints</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">5.2 MB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/cole-stump-prr.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/cole-stump-prr.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 4 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Duran Subsequent PRR Documents</h4>
+            <p>Public Records Request documents with subsequent responses and correspondence.</p>
+            <span class="evidence-category">Formal Complaints</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">662 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/duran-subsequent-prr.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/duran-subsequent-prr.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 5 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Email – Angie Fox Witness Testimony</h4>
+            <p>Email correspondence from Angie Fox regarding her willingness to testify as a witness.</p>
+            <span class="evidence-category">Witness Statements</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">192 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/angie-fox-testimony.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/angie-fox-testimony.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 6 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Automatic Vehicle Location (AVL) Data</h4>
+            <p>GPS tracking data for police vehicles involved in the Cole Stump incident on October 12, 2020.</p>
+            <span class="evidence-category">Vehicle Trajectory Data</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">431 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/avl-data.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/avl-data.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 7 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Duran 5th PRR Response – January 26, 2024</h4>
+            <p>The fifth PRR response from the Billings Police Department with extensive documentation.</p>
+            <span class="evidence-category">Formal Complaints</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">8.9 MB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/duran-5th-prr.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/duran-5th-prr.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 8 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Jacob Grommes Witness Statement (pp. 152–193)</h4>
+            <p>Official witness statement from Jacob Grommes providing firsthand account of events.</p>
+            <span class="evidence-category">Witness Statements</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">332 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/grommes-statement.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/grommes-statement.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 9 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Officer Lane Supplement Report (p. 162)</h4>
+            <p>Supplement report filed by Officer Lane documenting officer actions and observations.</p>
+            <span class="evidence-category">Audit Logs</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">132 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/lane-report.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/lane-report.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 10 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Officer Tyler Kammerzell Supplement Report (p. 163)</h4>
+            <p>Supplement report filed by Officer Tyler Kammerzell documenting his actions and observations.</p>
+            <span class="evidence-category">Audit Logs</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">135 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/kammerzell-report.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/kammerzell-report.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 11 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Justin Bickford Victim Statement (pp. 194–201)</h4>
+            <p>Official victim statement from Justin Bickford with firsthand account of events.</p>
+            <span class="evidence-category">Witness Statements</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">172 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/bickford-statement.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/bickford-statement.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 12 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Officer Richardson Supplement Report (p. 159)</h4>
+            <p>Supplement report filed by Officer Richardson documenting his actions and observations.</p>
+            <span class="evidence-category">Audit Logs</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">134 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/richardson-report.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/richardson-report.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 13 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Officer Caleb Schultz Supplement Report (p. 157)</h4>
+            <p>Supplement report filed by Officer Caleb Schultz documenting his actions and observations.</p>
+            <span class="evidence-category">Audit Logs</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">135 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/schultz-report.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/schultz-report.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 14 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Taylor Vladic Detective Interview (pp. 1–18)</h4>
+            <p>Detective interview transcript with Taylor Vladic recorded as part of the investigation.</p>
+            <span class="evidence-category">Witness Statements</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">228 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/vladic-interview.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/vladic-interview.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+
+        <!-- Document 15 -->
+        <div class="evidence-item">
+          <div class="evidence-info">
+            <h4>Ryland Nelson Witness Statement (pp. 38–67)</h4>
+            <p>Official witness statement from Ryland Nelson providing firsthand account of events.</p>
+            <span class="evidence-category">Witness Statements</span>
+            <p class="text-small text-gray" style="margin-top: 0.5rem;">286 KB • PDF</p>
+          </div>
+          <div class="evidence-actions">
+            <a href="documents/nelson-statement.pdf" target="_blank" class="btn btn-primary btn-small">Download</a>
+            <a href="documents/nelson-statement.pdf" class="btn btn-secondary btn-small">View</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Justice for Cole Stump. All rights reserved.</p>
+    <p>This is a community-driven advocacy portal. <a href="https://github.com/tduran2003/cole-stump-justice-static">View source on GitHub</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
