@@ -3,138 +3,253 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Justice for Cole Stump - MMIP Advocacy Portal</title>
-  <meta name="description" content="Justice for Cole Stump - A digital advocacy portal demanding justice, accountability, and transparency for Cole Stump.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Cole Stump Justice & MMIP Advocacy Portal</title>
+  <meta name="description" content="Justice for Cole Stump - A digital advocacy portal demanding justice, accountability, and transparency.">
+  <meta property="og:title" content="Cole Stump Justice & MMIP Advocacy Portal">
+  <meta property="og:description" content="A high-impact, investigative, and memorial website dedicated to the case of Cole Stump and the MMIP crisis.">
+  <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <div class="logo-bar"></div>
-        <span>Justice for Cole</span>
-      </a>
-      
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="evidence-vault.html">Evidence Vault</a>
-        <a href="timeline.html">Timeline</a>
-        <a href="vigil.html">Digital Vigil</a>
-        <a href="gallery.html">Memorial Gallery</a>
-        <a href="youtube.html">Watch Guard Videos</a>
-        <a href="youtube.html">Watch Guard Videos</a>
-        <a href="mmip-resources.html">MMIP Resources</a>
+  <!-- Navigation Header -->
+  <header class="bg-black text-white sticky top-0 z-50 border-b-2 border-red-600">
+    <div class="container max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
+          <div class="w-1 h-6 bg-red-600"></div>
+          <span class="font-bold text-lg text-white">Justice for Cole</span>
+        </a>
+        <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        <nav class="hidden md:flex gap-8">
+          <a href="index.html" class="text-white font-semibold hover:text-red-600 transition">Home</a>
+          <a href="evidence-vault.html" class="text-white font-semibold hover:text-red-600 transition">Evidence Vault</a>
+          <a href="timeline.html" class="text-white font-semibold hover:text-red-600 transition">Timeline</a>
+          <a href="vigil.html" class="text-white font-semibold hover:text-red-600 transition">Digital Vigil</a>
+          <a href="gallery.html" class="text-white font-semibold hover:text-red-600 transition">Memorial Gallery</a>
+          <a href="youtube.html" class="text-white font-semibold hover:text-red-600 transition">Watch Guard Videos</a>
+          <a href="mmip-resources.html" class="text-white font-semibold hover:text-red-600 transition">MMIP Resources</a>
+        </nav>
+      </div>
+      <nav class="mobile-nav hidden flex-col gap-2 pb-4" id="mobileNav">
+        <a href="index.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Home</a>
+        <a href="evidence-vault.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Evidence Vault</a>
+        <a href="timeline.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Timeline</a>
+        <a href="vigil.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Digital Vigil</a>
+        <a href="gallery.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Memorial Gallery</a>
+        <a href="youtube.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Watch Guard Videos</a>
+        <a href="mmip-resources.html" class="text-white font-semibold hover:text-red-600 transition block py-2">MMIP Resources</a>
       </nav>
-
-      <button class="menu-toggle">☰</button>
     </div>
-
-    <nav class="mobile-nav">
-      <a href="index.html">Home</a>
-      <a href="evidence-vault.html">Evidence Vault</a>
-      <a href="timeline.html">Timeline</a>
-      <a href="vigil.html">Digital Vigil</a>
-      <a href="gallery.html">Memorial Gallery</a>
-      <a href="youtube.html">Watch Guard Videos</a>
-      <a href="youtube.html">Watch Guard Videos</a>
-        <a href="mmip-resources.html">MMIP Resources</a>
-    </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>Justice for Cole Stump</h1>
-      <p>Cole was murdered by Billings Police on October 12, 2020, while committing no crime. We demand justice, accountability, and transparency.</p>
-      <div class="hero-buttons">
-        <a href="evidence-vault.html" class="btn btn-primary">Learn the Facts →</a>
-        <a href="vigil.html" class="btn btn-secondary">Join the Vigil</a>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="cards-grid">
-        <div class="card">
-          <h3>📋 Evidence Vault</h3>
-          <p>Access 15+ official documents including inquest transcriptions, witness statements, and public records requests.</p>
-          <a href="evidence-vault.html" class="btn btn-primary">View Evidence</a>
-        </div>
-
-        <div class="card">
-          <h3>📅 Case Timeline</h3>
-          <p>Follow the timeline of events surrounding Cole Stump's case from October 12, 2020 to present.</p>
-          <a href="timeline.html" class="btn btn-primary">View Timeline</a>
-        </div>
-
-        <div class="card">
-          <h3>🕯️ Digital Vigil</h3>
-          <p>Join our community in remembering Cole and demanding justice. Share your message of support.</p>
-          <a href="vigil.html" class="btn btn-primary">Leave a Message</a>
-        </div>
-
-        <div class="card">
-          <h3>📸 Memorial Gallery</h3>
-          <p>View photos of Cole and moments from our advocacy efforts.</p>
-          <a href="gallery.html" class="btn btn-primary">View Gallery</a>
-        </div>
-
-        <div class="card">
-          <h3>🤝 MMIP Resources</h3>
-          <p>Learn about Missing and Murdered Indigenous Persons and support organizations.</p>
-          <a href="mmip-resources.html" class="btn btn-primary">Learn More</a>
-        </div>
-
-        <div class="card">
-          <h3>📢 Take Action</h3>
-          <p>Join our advocacy efforts. Contact elected officials and demand accountability.</p>
-          <a href="vigil.html" class="btn btn-primary">Get Involved</a>
+  <!-- Main Content -->
+  <main class="min-h-screen bg-black text-white">
+    <!-- Hero Section with Handprint -->
+    <section class="hero-section bg-black text-white py-20 px-4 relative overflow-hidden">
+      <div class="handprint-bg"></div>
+      <div class="container max-w-6xl mx-auto relative z-10 text-center">
+        <h1 class="text-5xl md:text-6xl font-black font-serif text-white mb-6">Justice for Cole Stump</h1>
+        <p class="text-xl md:text-2xl text-white font-semibold mb-8 max-w-2xl mx-auto">
+          Cole was murdered by Billings Police on October 12, 2020, while committing no crime. We demand justice, accountability, and transparency.
+        </p>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <button class="btn btn-primary" onclick="window.location.href='evidence-vault.html'">Learn the Facts →</button>
+          <button class="btn btn-secondary" onclick="window.location.href='vigil.html'">Join the Vigil</button>
         </div>
       </div>
     </section>
 
-    <section class="container" style="max-width: 800px; margin: 4rem auto;">
-      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">About This Case</h2>
-      
-      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
-        Cole Stump was killed by Billings Police Department officers on October 12, 2020—a day observed as both Native American Day and Columbus Day. Despite committing no crime, Cole's life was taken. This portal serves as a digital hub for justice, accountability, and transparency.
-      </p>
-      
-      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
-        We believe in the power of community, evidence, and persistent advocacy. Every document, every timeline entry, and every message of support brings us closer to justice.
-      </p>
-      
-      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2.5rem;">
-        This is not just about Cole Stump. This is about all Missing and Murdered Indigenous Persons (MMIP) and the systemic failures that allow injustice to persist.
-      </p>
+    <!-- The Case Section -->
+    <section class="bg-black text-white py-16 px-4 border-t-2 border-red-600">
+      <div class="container max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-white mb-12">The Case at a Glance</h2>
+        
+        <div class="bg-gray-900 border-l-4 border-red-600 p-8 mb-8">
+          <p class="text-lg text-white font-semibold mb-6">
+            On October 12, 2020, Cole Stump, a 29-year-old Indigenous father of five from Rocky Boy Reservation, was shot and killed by Billings Police officers Justin Bickford and Ryland Nelson. Despite committing no crime, the shooting was deemed "justified" by an inquest jury. We refuse to accept this outcome and demand a full investigation into police conduct, evidence tampering, and systemic failures.
+          </p>
+        </div>
 
-      <h3 style="font-size: 1.3rem; margin: 2rem 0 1rem 0; color: #111827; font-family: 'Playfair Display', serif; font-weight: 700;">
-        Critical Inconsistencies & Investigative Questions
-      </h3>
-      
-      <p style="margin-bottom: 1.25rem; line-height: 1.7; color: #374151;">
-        Our deep review of the documented evidence, public files, and physical scene records has revealed contradictions that the official narrative leaves completely unaddressed:
-      </p>
-      
-      <ul style="list-style-type: square; padding-left: 1.5rem; line-height: 1.8; color: #374151; margin-bottom: 2rem;">
-        <li style="margin-bottom: 0.75rem;"><strong style="color: #111827;">Missing & Mismarked Evidence:</strong> Out of 11 officer shell casings fired at the scene, only 10 were officially sent in for processing. Separate shell casings were located in completely different physical locations by different officers, yet were assigned the exact same evidence marker.</li>
-        <li style="margin-bottom: 0.75rem;"><strong style="color: #111827;">Delayed Taser Deployment:</strong> Records indicate a severe timeline gap: a taser was deployed an inexplicable five minutes <em>after</em> the shooting had already occurred.</li>
-        <li style="margin-bottom: 0.75rem;"><strong style="color: #111827;">Altered CAD Logs:</strong> Official Computer-Aided Dispatch (CAD) logs have not remained consistent. The CAD logs initially provided via public records requests in 2022 show clear, distinct alterations when compared directly against updated CAD logs requested and received in 2024.</li>
-        <li style="margin-bottom: 0.75rem;"><strong style="color: #111827;">Unexplained Scene Activity:</strong> Witness accounts and scene monitoring identify two people walking directly toward the shooting scene right before it happened and walking away immediately after. Furthermore, an individual was observed completely changing clothes right next to a police unit within the active, cordoned scene area.</li>
-      </ul>
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          <div class="bg-gray-900 border border-red-600 p-6">
+            <h3 class="text-xl font-bold text-white mb-3">The Shooting</h3>
+            <p class="text-white font-semibold">Cole was shot by Billings Police on October 12, 2020, in circumstances that remain disputed and under investigation.</p>
+          </div>
+          <div class="bg-gray-900 border border-red-600 p-6">
+            <h3 class="text-xl font-bold text-white mb-3">Evidence Tampering</h3>
+            <p class="text-white font-semibold">Dispatch records (CAD logs) were altered 4 years after the shooting to edit information about the fire department responders.</p>
+          </div>
+          <div class="bg-gray-900 border border-red-600 p-6">
+            <h3 class="text-xl font-bold text-white mb-3">Taser Timeline</h3>
+            <p class="text-white font-semibold">Computer records show the Taser was fired 5 minutes after the shooting ended, contradicting the official narrative.</p>
+          </div>
+        </div>
 
-      <p style="font-size: 1.1rem; line-height: 1.7; color: #111827; font-weight: 500; border-top: 1px solid #e5e7eb; padding-top: 1.5rem;">
-        These facts do not align with a transparent investigation. We compile this data to ensure the details cannot be hidden, forgotten, or erased.
-      </p>
+        <!-- Critical Inconsistencies Section -->
+        <div class="bg-gray-900 border-2 border-red-600 p-8 mb-12">
+          <h3 class="text-2xl font-bold text-white mb-6">Critical Inconsistencies & Investigative Questions</h3>
+          <p class="text-white font-semibold mb-6">
+            Our deep review of the documented evidence, public files, and physical scene records has revealed contradictions that the official narrative leaves completely unaddressed:
+          </p>
+          
+          <ul class="space-y-4 text-white font-semibold">
+            <li class="flex gap-3">
+              <span class="text-red-600 font-bold">•</span>
+              <span><strong>Missing & Mismarked Evidence:</strong> Out of 11 officer shell casings fired at the scene, only 10 were officially sent in for processing. Separate shell casings were located in completely different physical locations by different officers, yet were assigned the exact same evidence marker.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-600 font-bold">•</span>
+              <span><strong>Delayed Taser Deployment:</strong> Records indicate a severe timeline gap: a taser was deployed an inexplicable five minutes after the shooting had already occurred.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-600 font-bold">•</span>
+              <span><strong>Altered CAD Logs:</strong> Official Computer-Aided Dispatch (CAD) logs have not remained consistent. The CAD logs initially provided via public records requests in 2022 show clear, distinct alterations when compared directly against updated CAD logs requested and received in 2024.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-600 font-bold">•</span>
+              <span><strong>Unexplained Scene Activity:</strong> Witness accounts and scene monitoring identify two people walking directly toward the shooting scene right before it happened and walking away immediately after. Furthermore, an individual was observed completely changing clothes right next to a police unit within the active, cordoned scene area.</span>
+            </li>
+          </ul>
+          
+          <p class="text-white font-semibold mt-6">
+            These facts do not align with a transparent investigation. We compile this data to ensure the details cannot be hidden, forgotten, or erased.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="bg-black text-white py-16 px-4 border-t-2 border-red-600">
+      <div class="container max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-white mb-12">Our Mission</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-gray-900 border border-red-600 p-8">
+            <h3 class="text-2xl font-bold text-white mb-4">Investigation & Transparency</h3>
+            <p class="text-white font-semibold mb-6">We host forensic evidence, timelines, and digital logs related to the police-involved shooting. Every document is available for journalists, researchers, and advocates to examine.</p>
+            <a href="evidence-vault.html" class="btn btn-primary inline-block">View Evidence Vault</a>
+          </div>
+          
+          <div class="bg-gray-900 border border-red-600 p-8">
+            <h3 class="text-2xl font-bold text-white mb-4">MMIP Advocacy</h3>
+            <p class="text-white font-semibold mb-6">Cole's case is part of the broader Missing and Murdered Indigenous People (MMIP) crisis. We connect local justice efforts with national advocacy movements and resources.</p>
+            <a href="mmip-resources.html" class="btn btn-primary inline-block">Learn About MMIP</a>
+          </div>
+
+          <div class="bg-gray-900 border border-red-600 p-8">
+            <h3 class="text-2xl font-bold text-white mb-4">Interactive Timeline</h3>
+            <p class="text-white font-semibold mb-6">Explore a detailed chronology of events from October 12, 2020, to the present. Click on timestamps to view corresponding evidence and witness statements.</p>
+            <a href="timeline.html" class="btn btn-primary inline-block">View Timeline</a>
+          </div>
+
+          <div class="bg-gray-900 border border-red-600 p-8">
+            <h3 class="text-2xl font-bold text-white mb-4">Legal Resources</h3>
+            <p class="text-white font-semibold mb-6">Access legal documents, court filings, and information about ongoing investigations. Transparency is not a request—it's a right.</p>
+            <a href="evidence-vault.html" class="btn btn-primary inline-block">Access Documents</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Voices Section -->
+    <section class="bg-gray-900 text-white py-16 px-4 border-t-2 border-red-600">
+      <div class="container max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-white mb-12">Community Voices</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="border-l-4 border-red-600 pl-6">
+            <p class="text-lg text-white font-semibold italic mb-4">"Transparency is not a request; it's a right. To the Billings Police Department, my brother is a case number or a 'justified' headline. But to us, he was a father, a son, and a human being."</p>
+            <p class="text-red-600 font-bold">— Cole's Family</p>
+          </div>
+          
+          <div class="border-l-4 border-red-600 pl-6">
+            <p class="text-lg text-white font-semibold italic mb-4">"I never thought I'd have to spend years of my life begging for justice. But we will not stop until there is accountability for Cole."</p>
+            <p class="text-red-600 font-bold">— Tasheena Duran (Cole's sister)</p>
+          </div>
+
+          <div class="border-l-4 border-red-600 pl-6">
+            <p class="text-lg text-white font-semibold italic mb-4">"Cole was an Indigenous father of 5 from Rocky Boy. His case represents the systemic failures that plague our communities. We stand in solidarity."</p>
+            <p class="text-red-600 font-bold">— MMIP Movement</p>
+          </div>
+
+          <div class="border-l-4 border-red-600 pl-6">
+            <p class="text-lg text-white font-semibold italic mb-4">"Thank you all for helping keep this page strong. Five years of advocacy, and we're not stopping until there is justice."</p>
+            <p class="text-red-600 font-bold">— Justice for Cole Stump Page</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stand with Us Section -->
+    <section class="bg-black text-white py-16 px-4 border-t-2 border-red-600">
+      <div class="container max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-white mb-8">Stand with Us</h2>
+        <p class="text-xl text-white font-semibold mb-8">Sign the petition, contact elected officials, share Cole's story, and support the MMIP movement. Every action counts.</p>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <button class="btn btn-primary" onclick="alert('Petition feature coming soon')">Sign the Petition</button>
+          <button class="btn btn-secondary" onclick="alert('Contact officials feature coming soon')">Contact Officials</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section class="bg-gray-900 text-white py-16 px-4 border-t-2 border-red-600">
+      <div class="container max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-white mb-12">Get Involved</h2>
+        
+        <div class="max-w-2xl mx-auto bg-black border border-red-600 p-8">
+          <h3 class="text-2xl font-bold text-white mb-6">Send Us a Message</h3>
+          <p class="text-white font-semibold mb-6">Share information, ask questions, or express your support for justice.</p>
+          
+          <form onsubmit="handleFormSubmit(event)">
+            <div class="mb-6">
+              <label class="block text-white font-bold mb-2">Full Name</label>
+              <input type="text" placeholder="Your name" class="w-full bg-gray-800 text-white border border-red-600 p-3 rounded" required>
+            </div>
+            
+            <div class="mb-6">
+              <label class="block text-white font-bold mb-2">Email Address</label>
+              <input type="email" placeholder="your@email.com" class="w-full bg-gray-800 text-white border border-red-600 p-3 rounded" required>
+            </div>
+            
+            <div class="mb-6">
+              <label class="block text-white font-bold mb-2">Message</label>
+              <textarea placeholder="Share your message, evidence, or support..." class="w-full bg-gray-800 text-white border border-red-600 p-3 rounded h-32" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-full">Send Message</button>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Justice for Cole Stump. All rights reserved.</p>
-    <p>This is a community-driven advocacy portal. <a href="https://github.com/tduran2003/cole-stump-justice-static">View source on GitHub</a></p>
+  <!-- Footer -->
+  <footer class="bg-black text-white border-t-2 border-red-600 py-12 px-4">
+    <div class="container max-w-6xl mx-auto text-center">
+      <p class="text-white font-bold mb-2">&copy; 2026 Justice for Cole Stump. All rights reserved.</p>
+      <p class="text-white font-bold mb-4">Advocating for justice and awareness for Missing and Murdered Indigenous Persons (MMIP)</p>
+      <div class="flex gap-4 justify-center flex-wrap text-red-600 font-bold">
+        <a href="index.html" class="hover:text-white transition">Home</a>
+        <a href="evidence-vault.html" class="hover:text-white transition">Evidence</a>
+        <a href="youtube.html" class="hover:text-white transition">Videos</a>
+        <a href="mmip-resources.html" class="hover:text-white transition">Resources</a>
+      </div>
+    </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileNav');
+      menu.classList.toggle('hidden');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Thank you for your message. We will review it and respond soon.');
+      e.target.reset();
+    }
+  </script>
 </body>
 </html>
