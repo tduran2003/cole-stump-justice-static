@@ -29,14 +29,13 @@ html {
 
 body {
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: var(--color-black);
-  background-image: 
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600"><defs><style>.hand-print { fill: %23dc2626; opacity: 0.25; }</style></defs><g class="hand-print"><ellipse cx="200" cy="150" rx="45" ry="50"/><circle cx="140" cy="80" r="25"/><circle cx="180" cy="50" r="22"/><circle cx="220" cy="45" r="22"/><circle cx="260" cy="55" r="25"/><circle cx="290" cy="90" r="25"/></g></svg>');
+  background-color: #000000;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><style>svg { background: %23000000; }</style></defs><g id="hand" fill="%23dc2626" opacity="0.4"><ellipse cx="500" cy="300" rx="80" ry="100"/><circle cx="350" cy="120" r="50"/><circle cx="450" cy="60" r="45"/><circle cx="550" cy="50" r="45"/><circle cx="650" cy="70" r="50"/><circle cx="750" cy="140" r="50"/></g></svg>');
   background-repeat: no-repeat;
   background-position: center top;
   background-attachment: fixed;
-  background-size: 600px 800px;
-  color: var(--color-white);
+  background-size: 100% auto;
+  color: #ffffff;
   line-height: 1.6;
 }
 
@@ -45,12 +44,12 @@ body {
    ============================================================================ */
 
 header {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: #000000;
+  color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 50;
-  border-bottom: 2px solid var(--color-red);
+  border-bottom: 2px solid #dc2626;
 }
 
 .header-container {
@@ -67,7 +66,7 @@ header {
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: var(--color-white);
+  color: #ffffff;
   font-weight: bold;
   font-size: 1.125rem;
   transition: opacity 0.3s;
@@ -80,7 +79,7 @@ header {
 .logo-bar {
   width: 4px;
   height: 24px;
-  background-color: var(--color-red);
+  background-color: #dc2626;
 }
 
 /* Desktop Navigation */
@@ -90,7 +89,7 @@ nav {
 }
 
 nav a {
-  color: var(--color-gray-300);
+  color: #d1d5db;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.875rem;
@@ -98,7 +97,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--color-red);
+  color: #dc2626;
 }
 
 /* Mobile Menu Button */
@@ -106,7 +105,7 @@ nav a:hover {
   display: none;
   background: none;
   border: none;
-  color: var(--color-white);
+  color: #ffffff;
   cursor: pointer;
   font-size: 1.5rem;
   padding: 0.5rem;
@@ -119,8 +118,8 @@ nav a:hover {
   top: 100%;
   left: 0;
   right: 0;
-  background-color: var(--color-black);
-  border-top: 1px solid var(--color-gray-800);
+  background-color: #000000;
+  border-top: 1px solid #1f2937;
   padding: 1rem;
   flex-direction: column;
   gap: 0.5rem;
@@ -133,15 +132,15 @@ nav a:hover {
 .mobile-nav a {
   display: block;
   padding: 0.75rem 1rem;
-  color: var(--color-gray-300);
+  color: #d1d5db;
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s;
 }
 
 .mobile-nav a:hover {
-  background-color: var(--color-red);
-  color: var(--color-white);
+  background-color: #dc2626;
+  color: #ffffff;
 }
 
 /* ============================================================================
@@ -163,8 +162,8 @@ main {
    ============================================================================ */
 
 .hero {
-  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(153,27,27,0.6) 100%);
-  color: var(--color-white);
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(153,27,27,0.4) 100%);
+  color: #ffffff;
   padding: 6rem 2rem;
   text-align: center;
   min-height: 500px;
@@ -180,6 +179,7 @@ main {
   font-weight: 900;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  color: #ffffff;
 }
 
 .hero p {
@@ -187,6 +187,7 @@ main {
   max-width: 600px;
   margin-bottom: 2rem;
   line-height: 1.8;
+  color: #ffffff;
 }
 
 .hero-buttons {
@@ -213,24 +214,24 @@ main {
 }
 
 .btn-primary {
-  background-color: var(--color-red);
-  color: var(--color-white);
+  background-color: #dc2626;
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-red-dark);
+  background-color: #991b1b;
   transform: translateY(-2px);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--color-white);
-  border: 2px solid var(--color-white);
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* ============================================================================
@@ -238,8 +239,8 @@ main {
    ============================================================================ */
 
 .card {
-  background-color: rgba(31, 41, 55, 0.8);
-  border: 1px solid var(--color-red);
+  background-color: rgba(31, 41, 55, 0.9);
+  border: 1px solid #dc2626;
   border-radius: 8px;
   padding: 1.5rem;
   transition: all 0.3s;
@@ -249,18 +250,28 @@ main {
 .card:hover {
   box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
   transform: translateY(-2px);
-  border-color: var(--color-white);
+  border-color: #ffffff;
 }
 
-.card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-white);
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6 {
+  color: #ffffff;
 }
 
 .card p {
-  color: var(--color-gray-300);
-  margin-bottom: 1rem;
+  color: #d1d5db;
+}
+
+.card a {
+  color: #dc2626;
+}
+
+.card a:hover {
+  color: #ffffff;
 }
 
 .cards-grid {
@@ -268,6 +279,26 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin: 2rem 0;
+}
+
+/* ============================================================================
+   Headings
+   ============================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+p {
+  color: #d1d5db;
+}
+
+a {
+  color: #dc2626;
+}
+
+a:hover {
+  color: #ffffff;
 }
 
 /* ============================================================================
@@ -280,8 +311,8 @@ main {
 }
 
 .evidence-item {
-  background-color: rgba(31, 41, 55, 0.7);
-  border-left: 4px solid var(--color-red);
+  background-color: rgba(31, 41, 55, 0.8);
+  border-left: 4px solid #dc2626;
   padding: 1.5rem;
   border-radius: 4px;
   display: flex;
@@ -294,19 +325,19 @@ main {
 .evidence-info h4 {
   font-size: 1.1rem;
   margin-bottom: 0.25rem;
-  color: var(--color-white);
+  color: #ffffff;
 }
 
 .evidence-info p {
   font-size: 0.875rem;
-  color: var(--color-gray-300);
+  color: #d1d5db;
   margin-bottom: 0.5rem;
 }
 
 .evidence-category {
   display: inline-block;
-  background-color: var(--color-red);
-  color: var(--color-white);
+  background-color: #dc2626;
+  color: #ffffff;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.75rem;
@@ -342,7 +373,7 @@ main {
   transform: translateX(-50%);
   width: 2px;
   height: 100%;
-  background-color: var(--color-red);
+  background-color: #dc2626;
 }
 
 .timeline-item {
@@ -363,12 +394,12 @@ main {
 }
 
 .timeline-content {
-  background-color: rgba(31, 41, 55, 0.8);
+  background-color: rgba(31, 41, 55, 0.9);
   padding: 1.5rem;
   border-radius: 8px;
   position: relative;
-  border: 1px solid var(--color-red);
-  color: var(--color-white);
+  border: 1px solid #dc2626;
+  color: #ffffff;
 }
 
 .timeline-content::after {
@@ -376,7 +407,7 @@ main {
   position: absolute;
   width: 12px;
   height: 12px;
-  background-color: var(--color-red);
+  background-color: #dc2626;
   border-radius: 50%;
   top: 1.5rem;
 }
@@ -391,7 +422,7 @@ main {
 
 .timeline-date {
   font-weight: 700;
-  color: var(--color-red);
+  color: #dc2626;
   margin-bottom: 0.5rem;
 }
 
@@ -399,7 +430,11 @@ main {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--color-white);
+  color: #ffffff;
+}
+
+.timeline-content p {
+  color: #d1d5db;
 }
 
 /* ============================================================================
@@ -419,8 +454,8 @@ main {
   border-radius: 8px;
   aspect-ratio: 1;
   cursor: pointer;
-  background-color: rgba(31, 41, 55, 0.8);
-  border: 1px solid var(--color-red);
+  background-color: rgba(31, 41, 55, 0.9);
+  border: 1px solid #dc2626;
 }
 
 .gallery-item img {
@@ -453,7 +488,7 @@ main {
 }
 
 .gallery-overlay-text {
-  color: var(--color-white);
+  color: #ffffff;
   text-align: center;
 }
 
@@ -469,8 +504,8 @@ main {
 }
 
 .youtube-item {
-  background-color: rgba(31, 41, 55, 0.8);
-  border: 1px solid var(--color-red);
+  background-color: rgba(31, 41, 55, 0.9);
+  border: 1px solid #dc2626;
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s;
@@ -503,12 +538,12 @@ main {
 }
 
 .youtube-info h4 {
-  color: var(--color-white);
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .youtube-info p {
-  color: var(--color-gray-300);
+  color: #d1d5db;
   font-size: 0.875rem;
 }
 
@@ -547,7 +582,7 @@ main {
   right: 20px;
   background: none;
   border: none;
-  color: var(--color-white);
+  color: #ffffff;
   font-size: 2rem;
   cursor: pointer;
   z-index: 1001;
@@ -559,7 +594,7 @@ main {
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: var(--color-white);
+  color: #ffffff;
   font-size: 2rem;
   cursor: pointer;
   padding: 1rem;
@@ -591,29 +626,29 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: var(--color-white);
+  color: #ffffff;
 }
 
 input,
 textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid var(--color-red);
+  border: 1px solid #dc2626;
   border-radius: 4px;
-  background-color: rgba(31, 41, 55, 0.8);
-  color: var(--color-white);
+  background-color: rgba(31, 41, 55, 0.9);
+  color: #ffffff;
   font-family: inherit;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: var(--color-gray-600);
+  color: #4b5563;
 }
 
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--color-white);
+  border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
 }
 
@@ -627,26 +662,27 @@ textarea {
    ============================================================================ */
 
 footer {
-  background-color: var(--color-black);
-  border-top: 2px solid var(--color-red);
+  background-color: #000000;
+  border-top: 2px solid #dc2626;
   padding: 2rem 1rem;
   text-align: center;
-  color: var(--color-gray-300);
+  color: #d1d5db;
   margin-top: 4rem;
 }
 
 footer p {
   margin-bottom: 0.5rem;
+  color: #d1d5db;
 }
 
 footer a {
-  color: var(--color-red);
+  color: #dc2626;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 footer a:hover {
-  color: var(--color-white);
+  color: #ffffff;
 }
 
 /* ============================================================================
@@ -724,11 +760,11 @@ footer a:hover {
 }
 
 .text-red {
-  color: var(--color-red);
+  color: #dc2626;
 }
 
 .text-white {
-  color: var(--color-white);
+  color: #ffffff;
 }
 
 .mt-2 {
@@ -745,4 +781,20 @@ footer a:hover {
 
 .mb-4 {
   margin-bottom: 2rem;
+}
+
+ul {
+  color: #d1d5db;
+}
+
+ul li {
+  color: #d1d5db;
+}
+
+ol {
+  color: #d1d5db;
+}
+
+ol li {
+  color: #d1d5db;
 }
