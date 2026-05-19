@@ -4,175 +4,159 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Memorial Gallery - Justice for Cole Stump</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <div class="logo-bar"></div>
-        <span>Justice for Cole</span>
-      </a>
-      
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="evidence-vault.html">Evidence Vault</a>
-        <a href="timeline.html">Timeline</a>
-        <a href="vigil.html">Digital Vigil</a>
-        <a href="gallery.html">Memorial Gallery</a>
-        <a href="youtube.html">Watch Guard Videos</a>
-        <a href="mmip-resources.html">MMIP Resources</a>
+  <!-- Navigation Header -->
+  <header class="bg-black text-white sticky top-0 z-50 border-b-2 border-red-600">
+    <div class="container max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
+          <div class="w-1 h-6 bg-red-600"></div>
+          <span class="font-bold text-lg text-white">Justice for Cole</span>
+        </a>
+        <button class="menu-toggle md:hidden" onclick="toggleMobileMenu()">☰</button>
+        <nav class="hidden md:flex gap-8">
+          <a href="index.html" class="text-white font-semibold hover:text-red-600 transition">Home</a>
+          <a href="evidence-vault.html" class="text-white font-semibold hover:text-red-600 transition">Evidence Vault</a>
+          <a href="timeline.html" class="text-white font-semibold hover:text-red-600 transition">Timeline</a>
+          <a href="vigil.html" class="text-white font-semibold hover:text-red-600 transition">Digital Vigil</a>
+          <a href="gallery.html" class="text-red-600 font-semibold hover:text-white transition">Memorial Gallery</a>
+          <a href="youtube.html" class="text-white font-semibold hover:text-red-600 transition">Watch Guard Videos</a>
+          <a href="mmip-resources.html" class="text-white font-semibold hover:text-red-600 transition">MMIP Resources</a>
+        </nav>
+      </div>
+      <nav class="mobile-nav hidden flex-col gap-2 pb-4" id="mobileNav">
+        <a href="index.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Home</a>
+        <a href="evidence-vault.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Evidence Vault</a>
+        <a href="timeline.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Timeline</a>
+        <a href="vigil.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Digital Vigil</a>
+        <a href="gallery.html" class="text-red-600 font-semibold hover:text-white transition block py-2">Memorial Gallery</a>
+        <a href="youtube.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Watch Guard Videos</a>
+        <a href="mmip-resources.html" class="text-white font-semibold hover:text-red-600 transition block py-2">MMIP Resources</a>
       </nav>
-
-      <button class="menu-toggle">☰</button>
     </div>
-
-    <nav class="mobile-nav">
-      <a href="index.html">Home</a>
-      <a href="evidence-vault.html">Evidence Vault</a>
-      <a href="timeline.html">Timeline</a>
-      <a href="vigil.html">Digital Vigil</a>
-      <a href="gallery.html">Memorial Gallery</a>
-      <a href="youtube.html">Watch Guard Videos</a>
-        <a href="mmip-resources.html">MMIP Resources</a>
-    </nav>
   </header>
 
-  <main>
-    <section class="container">
-      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📸 Memorial Gallery</h1>
-      <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
-        Photos of Cole Stump and moments from our advocacy efforts. Click any photo to view in full size.
-      </p>
+  <!-- Main Content -->
+  <main class="min-h-screen bg-black text-white">
+    <!-- Hero Section -->
+    <section class="bg-black text-white py-16 px-4 border-b-2 border-red-600">
+      <div class="container max-w-6xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-black font-serif text-white mb-6">Memorial Gallery</h1>
+        <p class="text-xl text-white font-semibold max-w-2xl mx-auto">
+          Photos of Cole Stump and moments from our community advocacy efforts. Each image tells a story of remembrance and solidarity.
+        </p>
+      </div>
+    </section>
 
-      <div class="gallery" id="gallery">
+    <!-- Gallery Grid Section -->
+    <section class="bg-black text-white py-16 px-4">
+      <div class="container max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-white mb-8">Cole's Memory</h2>
         
-        <div class="gallery-item">
-          <img src="images/16e93bb2-affd-441f-a784-b522df48a712.jpg" alt="Cole Stump memorial image" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <p>Click to view</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <!-- Placeholder Gallery Items -->
+          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
+            <div class="text-center">
+              <p class="text-white font-semibold">Photo 1</p>
+              <p class="text-gray-400 text-sm">Cole Stump Memorial</p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
+            <div class="text-center">
+              <p class="text-white font-semibold">Photo 2</p>
+              <p class="text-gray-400 text-sm">Community Gathering</p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
+            <div class="text-center">
+              <p class="text-white font-semibold">Photo 3</p>
+              <p class="text-gray-400 text-sm">Advocacy Event</p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
+            <div class="text-center">
+              <p class="text-white font-semibold">Photo 4</p>
+              <p class="text-gray-400 text-sm">Family Moment</p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
+            <div class="text-center">
+              <p class="text-white font-semibold">Photo 5</p>
+              <p class="text-gray-400 text-sm">Justice March</p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
+            <div class="text-center">
+              <p class="text-white font-semibold">Photo 6</p>
+              <p class="text-gray-400 text-sm">Community Support</p>
             </div>
           </div>
         </div>
 
-        <div class="gallery-item">
-          <img src="images/177c93d0-5748-4438-ade6-e6ac65759dc4.jpg" alt="Cole Stump memorial image" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <p>Click to view</p>
-            </div>
+        <!-- Photo Submission Section -->
+        <div class="bg-gray-900 border-2 border-red-600 p-8 mt-12">
+          <h3 class="text-2xl font-bold text-white mb-4">Share Your Memories</h3>
+          <p class="text-white font-semibold mb-6">
+            Do you have photos of Cole or moments from our advocacy efforts? We welcome submissions from community members, family, and supporters.
+          </p>
+          
+          <div class="bg-black border border-red-600 p-6">
+            <h4 class="text-xl font-bold text-white mb-4">Photo Guidelines</h4>
+            <ul class="text-white font-semibold space-y-3">
+              <li class="flex gap-3">
+                <span class="text-red-600">•</span>
+                <span>Photos should be respectful and appropriate for a memorial gallery</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-red-600">•</span>
+                <span>Include photo credit and date if available</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-red-600">•</span>
+                <span>Photos may be edited for size and quality</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-red-600">•</span>
+                <span>All submissions are reviewed before being added</span>
+              </li>
+            </ul>
           </div>
+
+          <p class="text-white font-semibold mt-6">
+            To submit photos for the gallery, please contact us through our main contact form or reach out directly to the advocacy team.
+          </p>
         </div>
-
-        <div class="gallery-item">
-          <img src="images/51e4ca78-e648-46c8-b3a4-54bf4a2ee386.jpg" alt="Cole Stump memorial image" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <p>Click to view</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/98231e42-ffa9-47ed-83b3-cd346302ee7e.jpg" alt="Cole Stump memorial image" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <p>Click to view</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/a28ddfcd-f80a-4fe1-9ba7-849b7d2b50c7.jpg" alt="Cole Stump memorial image" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <p>Click to view</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/acb6e3d8-3f6d-4f59-8055-b9c7618b5552.jpg" alt="Cole Stump memorial image" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <p>Click to view</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/c41c2ae0-bd7e-4bf4-92ca-570e751f4f77.jpg" alt="Cole Stump memorial image" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <p>Click to view</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/c452d908-eeca-431e-811e-057ccbe20818.jpg" alt="Cole Stump memorial image" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <p>Click to view</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/c54d59f4-99af-42a6-8e5f-3b71227ca277.jpg" alt="Advocacy community march banner" style="width: 100%; height: 100%; object-fit: cover;">
-          <div class="gallery-overlay">
-            <div class="gallery-overlay-text">
-              <p>Click to view</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-          <img id="lightbox-image" class="lightbox-image" src="" alt="Gallery Image">
-          <button class="lightbox-close">✕</button>
-          <button class="lightbox-nav lightbox-prev">❮</button>
-          <button class="lightbox-nav lightbox-next">❯</button>
-        </div>
-      </div>
-
-      <div style="max-width: 800px; margin: 4rem auto;">
-        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">About These Photos</h2>
-        <p style="margin-bottom: 1rem;">
-          This gallery contains photos of Cole Stump and moments from our community advocacy efforts. Each image tells a story of remembrance and solidarity.
-        </p>
-        <p style="margin-bottom: 1rem;">
-          To contribute photos to this gallery, please contact us directly. We welcome submissions from community members, family, and supporters.
-        </p>
-
-        <h3 style="font-size: 1.25rem; margin: 2rem 0 1rem 0;">Photo Guidelines</h3>
-        <ul style="list-style-position: inside; line-height: 2;">
-          <li>Photos should be respectful and appropriate for a memorial gallery</li>
-          <li>Include photo credit and date if available</li>
-          <li>Photos may be edited for size and quality</li>
-          <li>All submissions are reviewed before being added</li>
-        </ul>
-
-        <h3 style="font-size: 1.25rem; margin: 2rem 0 1rem 0;">Submit a Photo</h3>
-        <p>
-          To submit photos for the gallery, please email them to: 
-          <a href="mailto:photos@justice4colestump.com" style="color: #dc2626; text-decoration: none;">photos@justice4colestump.com</a>
-        </p>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Justice for Cole Stump. All rights reserved.</p>
-    <p>This is a community-driven advocacy portal. <a href="https://github.com/tduran2003/cole-stump-justice-static">View source on GitHub</a></p>
+  <!-- Footer -->
+  <footer class="bg-black text-white border-t-2 border-red-600 py-12 px-4">
+    <div class="container max-w-6xl mx-auto text-center">
+      <p class="text-white font-bold mb-2">&copy; 2026 Justice for Cole Stump. All rights reserved.</p>
+      <p class="text-white font-bold mb-4">Advocating for justice and awareness for Missing and Murdered Indigenous Persons (MMIP)</p>
+      <div class="flex gap-4 justify-center flex-wrap text-red-600 font-bold">
+        <a href="index.html" class="hover:text-white transition">Home</a>
+        <a href="evidence-vault.html" class="hover:text-white transition">Evidence</a>
+        <a href="youtube.html" class="hover:text-white transition">Videos</a>
+        <a href="mmip-resources.html" class="hover:text-white transition">Resources</a>
+      </div>
+    </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileNav');
+      menu.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
