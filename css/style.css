@@ -30,11 +30,11 @@ html {
 body {
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: #000000;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><style>svg { background: %23000000; }</style></defs><g id="hand" fill="%23dc2626" opacity="0.4"><ellipse cx="500" cy="300" rx="80" ry="100"/><circle cx="350" cy="120" r="50"/><circle cx="450" cy="60" r="45"/><circle cx="550" cy="50" r="45"/><circle cx="650" cy="70" r="50"/><circle cx="750" cy="140" r="50"/></g></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600"><defs><style>svg { background: %23000000; }</style></defs><g id="hand" fill="%23dc2626" opacity="0.5"><path d="M 200 250 Q 180 200 160 150 Q 150 120 140 80 L 130 40 Q 128 30 135 25 Q 145 20 155 35 Q 170 60 180 100 Q 195 150 210 200 L 200 250 Z"/><path d="M 200 250 Q 210 190 230 120 Q 240 80 250 40 L 255 20 Q 257 10 265 12 Q 275 15 270 35 Q 260 80 250 130 Q 235 190 220 240 L 200 250 Z"/><path d="M 200 250 Q 220 200 245 130 Q 258 90 270 50 L 280 15 Q 283 5 292 10 Q 300 15 295 40 Q 283 85 270 140 Q 245 210 225 250 L 200 250 Z"/><path d="M 200 250 Q 230 210 260 140 Q 275 100 290 60 L 305 20 Q 308 8 318 15 Q 325 20 318 50 Q 303 100 285 160 Q 260 230 240 260 L 200 250 Z"/><path d="M 200 250 Q 245 220 280 160 Q 298 120 315 75 L 330 30 Q 333 18 343 28 Q 348 35 338 70 Q 320 125 300 185 Q 270 250 250 270 L 200 250 Z"/><ellipse cx="200" cy="300" rx="85" ry="95"/></g></svg>');
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center 50px;
   background-attachment: fixed;
-  background-size: 100% auto;
+  background-size: 500px 700px;
   color: #ffffff;
   line-height: 1.6;
 }
@@ -666,19 +666,22 @@ footer {
   border-top: 2px solid #dc2626;
   padding: 2rem 1rem;
   text-align: center;
-  color: #d1d5db;
+  color: #ffffff;
   margin-top: 4rem;
+  font-weight: 600;
 }
 
 footer p {
   margin-bottom: 0.5rem;
-  color: #d1d5db;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 footer a {
   color: #dc2626;
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 600;
 }
 
 footer a:hover {
