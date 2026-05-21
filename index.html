@@ -21,7 +21,7 @@
         body {
             font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #1f2937;
             background-color: #fff;
         }
 
@@ -127,7 +127,7 @@
 
         .hero p {
             font-size: 1.25rem;
-            color: #ccc;
+            color: #d1d5db;
             margin-bottom: 2rem;
             line-height: 1.8;
         }
@@ -232,6 +232,95 @@
             line-height: 1.7;
         }
 
+        /* Collapsible Button */
+        .collapsible-button {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background-color: #fef2f2;
+            border: 2px solid #dc2626;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #000;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .collapsible-button:hover {
+            background-color: #fee2e2;
+        }
+
+        .chevron {
+            width: 2rem;
+            height: 2rem;
+            color: #dc2626;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .chevron.rotated {
+            transform: rotate(180deg);
+        }
+
+        /* Collapsible Content */
+        .collapsible-content {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: #f9fafb;
+            color: #1f2937;
+            border-radius: 0.5rem;
+            border-left: 4px solid #dc2626;
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+
+        .collapsible-content h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .collapsible-content h4 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #000;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .collapsible-content p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .collapsible-content ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .collapsible-content li {
+            color: #555;
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+
+        .collapsible-content strong {
+            color: #000;
+            font-weight: 600;
+        }
+
         /* Mission Cards Section */
         .mission-section {
             padding: 5rem 2rem;
@@ -259,37 +348,17 @@
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
         }
 
-        .mission-card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
         .mission-card h3 {
             font-size: 1.5rem;
             font-weight: bold;
             color: #000;
+            margin-bottom: 1rem;
         }
 
         .mission-card p {
             color: #666;
             margin: 1rem 0;
             line-height: 1.7;
-        }
-
-        .mission-card a {
-            color: #dc2626;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .mission-card a:hover {
-            color: #b91c1c;
         }
 
         /* Community Voices */
@@ -308,7 +377,6 @@
 
         .voice-card {
             border-left: 4px solid #dc2626;
-            padding-left: 1.5rem;
             padding: 1.5rem;
             background-color: #1f2937;
             border-radius: 0.25rem;
@@ -415,16 +483,45 @@
             background-color: #d1d5db;
         }
 
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 2rem;
+            background-color: #dc2626;
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         /* Contact Section */
         .contact-section {
             padding: 5rem 2rem;
-            background-color: #f9fafb;
+            background-color: #fff;
         }
 
         .contact-form {
             max-width: 600px;
             margin: 2rem auto;
-            background-color: #fff;
+            background-color: #f9fafb;
             padding: 2rem;
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -560,6 +657,11 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .collapsible-button {
+                font-size: 1.25rem;
+                padding: 1rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -596,7 +698,7 @@
                 <h2>The Case at a Glance</h2>
             </div>
             <p class="case-intro">
-                On October 12, 2020, Cole Stump, a 29-year-old Indigenous father of four from Rocky Boy Reservation, was shot and killed by Billings Police. Despite committing no crime, Cole was deemed "justified" by an inquest jury. We refuse to accept this outcome and demand a full investigation into police conduct, evidence tampering, and systemic failures.
+                On October 12, 2020, Cole Stump, a 29-year-old Indigenous father of five from Rocky Boy Reservation, was shot and killed by Billings Police officers Justin Bickford and Ryland Nelson. Despite committing no crime, the shooting was deemed "justified" by an inquest jury. We refuse to accept this outcome and demand a full investigation into police conduct, evidence tampering, and systemic failures.
             </p>
             <div class="case-grid">
                 <div class="case-card">
@@ -605,12 +707,105 @@
                 </div>
                 <div class="case-card">
                     <h3>Evidence Tampering</h3>
-                    <p>Dispatch records (CAD logs) were altered 4 years after the shooting to edit information about the fire department response.</p>
+                    <p>Dispatch records (CAD logs) were altered 4 years after the shooting to edit information about the fire department responders.</p>
                 </div>
                 <div class="case-card">
                     <h3>Taser Timeline</h3>
                     <p>Computer records show the Taser was fired 5 minutes after the shooting ended, contradicting the official narrative.</p>
                 </div>
+            </div>
+
+            <!-- Collapsible Full Facts Section -->
+            <button class="collapsible-button" onclick="toggleFacts()">
+                <span>Learn the Full Facts</span>
+                <span class="chevron" id="chevron">▼</span>
+            </button>
+
+            <div class="collapsible-content" id="factsContent">
+                <h3>The Shooting vs. The Forensic Reality</h3>
+                <p>
+                    The official police narrative describes a desperate fight for survival. Officers claim Cole gave a fake name, resisted handcuffing, fought four trained officers, and pulled a handgun from his waistband, prompting officers Bickford and Nelson to open fire.
+                </p>
+                <p>
+                    The physical and forensic evidence—as well as the officers' own statements—completely contradicts this story:
+                </p>
+                <ul>
+                    <li><strong>Complete Physical Control:</strong> While the department painted a picture of an uncontrollable threat, the reality was a man entirely pinned down. Cole was on the ground with all four officers on top of him. In his official interview, Officer Bickford explicitly stated that he had Cole's head trapped between his knees.</li>
+                    <li><strong>Staggering Physical Disparity:</strong> At 5'10" and barely 160 pounds, Cole was considerably smaller than the four trained, armed officers who surrounded him. They possessed every tactical advantage to de-escalate the situation using time, distance, and communication—instead, they chose to use eleven bullets.</li>
+                    <li><strong>Tools, Not Weapons:</strong> Original officer accounts and scene photographs show that Cole had a wrench in his hand, was holding his phone, and had a bicycle pump in his front right pocket.</li>
+                    <li><strong>Wounds of an Execution:</strong> Officers fired 11 bullets into Cole, striking him three times in the head, once in the neck, and multiple times through his torso and side. The autopsy reveals that the bullet entry angles were downward, not level. The trajectory proves Cole was already on the ground, incapacitated, when many of the shots were fired.</li>
+                    <li><strong>No Forensic Link to the Gun:</strong> Officers claim Cole threatened them with a handgun. Yet, forensic testing found <strong>zero fingerprints, zero blood, and zero DNA</strong> linking Cole to the weapon.</li>
+                    <li><strong>Contradictory Officer Testimony:</strong> All four officers who closely surrounded Cole testified at the inquest that he yelled he would shoot or kill them. However, during their initial interviews, two officers explicitly stated they never heard any such verbal threats and did not see a gun until <em>after</em> the shooting had already occurred.</li>
+                </ul>
+
+                <h3>Evidence Tampering & Digital Manipulation</h3>
+                <p>
+                    The body cameras that could have provided an objective record of the night did not exist; the department had not yet issued them. Instead, the investigation relied heavily on officer testimony and vehicle dash-cams—data that was systematically altered after the fact.
+                </p>
+
+                <h4>Edited WatchGuard Dash-Cam Logs</h4>
+                <p>
+                    Internal audit logs for the WatchGuard camera systems show that video files were manually renamed and reassigned to different officers' accounts after the shooting. The department has never explained who made these manual changes or why.
+                </p>
+
+                <h4>The 4-Year CAD Log Edit</h4>
+                <p>
+                    Official Computer-Aided Dispatch (CAD) logs are supposed to be permanent, unalterable legal records. However, a direct comparison between CAD logs obtained via public records requests in 2022 and updated logs received in 2024 reveals clear alterations made <strong>four years after the shooting</strong> regarding the fire department responders.
+                </p>
+
+                <h4>Deleted and Altered Fire Logs</h4>
+                <p>
+                    The internal audit logs for the fire department prove that information wasn't just modified—critical data entries were entirely deleted. When requests were made for the raw metadata, the department's IT technician claimed not to know what metadata was.
+                </p>
+
+                <h4>The Taser Timeline Fraud</h4>
+                <p>
+                    The official story claims officers deployed a Taser during the initial struggle before escalating to lethal force. The Taser's internal computer records tell a different story: <strong>the Taser was activated nearly five minutes after the gunfire had already ended.</strong> This proves the department attempted to rewrite the chronological order of events to manufacture a justification for the shooting.
+                </p>
+
+                <h3>Crime Scene Failures & Missing Evidence</h3>
+                <p>
+                    The processing of the crime scene bypassed standard forensic protocols, resulting in missing evidence and destroyed biological data.
+                </p>
+                <ul>
+                    <li><strong>Prioritizing Photos Over Life:</strong> Evidence shows that officers immediately began taking photos of the scene and Cole's body before medical help arrived. Though equipped with first aid kits and tactical medical training, officers failed to perform CPR or attempt to stop the bleeding while waiting for the ambulance.</li>
+                    <li><strong>Destruction of DNA Evidence:</strong> Standard forensic procedure dictates that a recovered firearm must be tested for DNA and fingerprints before it is handled or fired. The police <strong>fired the handgun to test it before checking it for biological evidence</strong>, effectively destroying any DNA proof of who actually touched the weapon.</li>
+                    <li><strong>Missing Shell Casings:</strong> Officers fired 11 rounds into Cole, but investigators only recovered and sent 10 shell casings to the state crime lab. Furthermore, separate shell casings found in entirely different physical locations by different officers were inexplicably assigned the exact same evidence marker.</li>
+                    <li><strong>Mismatched Records:</strong> Public records reveal widespread discrepancies across paperwork, including conflicting ambulance unit numbers, altered evidence tag numbers, and severe timeline gaps where dispatch, fire, and EMS records fail to line up.</li>
+                </ul>
+
+                <h3>The Missing Police Car and GPS Tracking</h3>
+                <p>
+                    The department has actively covered up the presence of specific police units at the crime scene.
+                </p>
+                <ul>
+                    <li><strong>The Ghost Car (Unit 1428):</strong> The Billings Police Department officially stated that Unit 1428 was not on duty and was not present at the scene. This was proven false by dash-cam footage from another officer (Officer Farrell), which clearly captures Unit 1428 entering the alleyway at 10:42 PM.</li>
+                    <li><strong>Violating the GPS Policy:</strong> When asked for the location history of its vehicles, the department claimed they do not keep records of where their cars go. However, the city's own policy—<strong>Administrative Order 131</strong>—explicitly states that the police vehicle tracking system is built to maintain a permanent history of every car's real-time location and route.</li>
+                </ul>
+
+                <h3>Ignored Witnesses and Unidentified Individuals</h3>
+                <p>
+                    Investigators actively avoided tracking down individuals who contradicted the police narrative or could identify alternative suspects.
+                </p>
+                <ul>
+                    <li><strong>The "Lost" Witnesses:</strong> During the official hearings, the department told the court they were unable to locate key witnesses. In reality, Cole's family had emailed the department the exact locations and contact information of those witnesses two weeks prior. This included two women who were with Cole to help jump-start the car; they witnessed an officer throw Cole to the ground, but were never called to testify. Additionally, the husband of the initial 911 caller was never interviewed.</li>
+                    <li><strong>Unidentified Scene Pedestrians:</strong> Dash-cam video captures two unidentified individuals walking directly toward the scene right before the shots were fired, and walking away immediately afterward. They were never stopped, detoured, or questioned.</li>
+                    <li><strong>The Person Changing Clothes:</strong> Video evidence shows an individual completely changing their clothes right next to a parked police car. Officers were present next to this person, yet they were completely ignored and never identified.</li>
+                </ul>
+
+                <h3>A Rigged Inquest</h3>
+                <p>
+                    The 2022 coroner's inquest was not an independent pursuit of truth. It was a closed system designed to clear the department of wrongdoing:
+                </p>
+                <ul>
+                    <li><strong>Conflict of Interest:</strong> The inquest was run by the same county attorney's office that works hand-in-hand with the Billings Police Department daily.</li>
+                    <li><strong>Lack of Representation:</strong> There were zero Native American jurors on the panel, despite Cole being an Indigenous man killed on Indigenous Peoples' Day.</li>
+                    <li><strong>Silenced Evidence:</strong> No outside forensic experts were permitted, and Cole's family was given no room to present the altered logs, missing casings, or downward bullet trajectories they uncovered.</li>
+                    <li><strong>Erasure of the Victim:</strong> The county attorney focused almost exclusively on the emotional impact of the shooting on the officers, barely acknowledging Cole's family or his six-month-old son.</li>
+                </ul>
+                <p>
+                    The jury returned a verdict of "justified" after hearing only the heavily curated, altered version of events presented by the police.
+                </p>
             </div>
         </div>
     </section>
@@ -624,36 +819,20 @@
             </div>
             <div class="mission-grid">
                 <div class="mission-card">
-                    <div class="mission-card-header">
-                        <span>📋</span>
-                        <h3>Investigation & Transparency</h3>
-                    </div>
+                    <h3>📋 Investigation & Transparency</h3>
                     <p>We host forensic evidence, timelines, and digital logs related to the police-involved shooting. Every document is available for journalists, researchers, and advocates to examine.</p>
-                    <a href="#vault">View Evidence Vault →</a>
                 </div>
                 <div class="mission-card">
-                    <div class="mission-card-header">
-                        <span>👥</span>
-                        <h3>MMIP Advocacy</h3>
-                    </div>
+                    <h3>👥 MMIP Advocacy</h3>
                     <p>Cole's case is part of the broader Missing and Murdered Indigenous People (MMIP) crisis. We connect local justice efforts with national advocacy movements and resources.</p>
-                    <a href="#">Learn About MMIP →</a>
                 </div>
                 <div class="mission-card">
-                    <div class="mission-card-header">
-                        <span>⏱️</span>
-                        <h3>Interactive Timeline</h3>
-                    </div>
+                    <h3>⏱️ Interactive Timeline</h3>
                     <p>Explore a detailed chronology of events from October 12, 2020, to the present. Click on timestamps to view corresponding evidence and witness statements.</p>
-                    <a href="#">View Timeline →</a>
                 </div>
                 <div class="mission-card">
-                    <div class="mission-card-header">
-                        <span>⚖️</span>
-                        <h3>Legal Resources</h3>
-                    </div>
+                    <h3>⚖️ Legal Resources</h3>
                     <p>Access legal documents, court filings, and information about ongoing investigations. Transparency is not a request—it's a right.</p>
-                    <a href="#vault">Access Documents →</a>
                 </div>
             </div>
         </div>
@@ -673,10 +852,10 @@
                 </div>
                 <div class="voice-card">
                     <p>"I never thought I'd have to spend years of my life begging for justice. But we will not stop until there is accountability for Cole."</p>
-                    <div class="attribution">— Community Advocate</div>
+                    <div class="attribution">— Tasheena Duran (Cole's sister)</div>
                 </div>
                 <div class="voice-card">
-                    <p>"Cole was an Indigenous father of 4 from Rocky Boy. His case represents the systemic failures that plague our communities. We stand in solidarity."</p>
+                    <p>"Cole was an Indigenous father of 5 from Rocky Boy. His case represents the systemic failures that plague our communities. We stand in solidarity."</p>
                     <div class="attribution">— MMIP Movement</div>
                 </div>
                 <div class="voice-card">
@@ -861,6 +1040,18 @@
         </div>
     </section>
 
+    <!-- Call-to-Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Stand with Us</h2>
+            <p>Sign the petition, contact elected officials, share Cole's story, and support the MMIP movement. Every action counts.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" style="background-color: #fff; color: #dc2626;">❤️ Sign the Petition</button>
+                <button class="btn btn-secondary" style="border-color: #fff;">Contact Officials</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="container">
@@ -868,7 +1059,8 @@
                 <div class="section-accent"></div>
                 <h2>Get Involved</h2>
             </div>
-            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" required>
@@ -910,9 +1102,25 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 Justice for Cole Stump. #JusticeForCole #MMIP #MMIWG2S #NoMoreStolenSisters</p>
+                <p>© 2024 Justice for Cole Stump. Transparency is not a request. It's a right.</p>
+                <p>#JusticeForCole #MMIP #MMIWG2S #NoMoreStolenSisters</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleFacts() {
+            const content = document.getElementById('factsContent');
+            const chevron = document.getElementById('chevron');
+            content.classList.toggle('active');
+            chevron.classList.toggle('rotated');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message. We will respond soon.');
+            event.target.reset();
+        }
+    </script>
 </body>
 </html>
