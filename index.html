@@ -1,24 +1,1035 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice for Cole Stump - MMIP Advocacy Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Cole Stump Justice & MMIP Advocacy Portal</title>    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Lato:wght@400;500;700&display=swap" rel="stylesheet" />
-  </head>
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
-  </body>
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #000;
+            border-bottom: 4px solid #dc2626;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            margin-right: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #dc2626;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663537280650/ZKh5pnRsd8bur4HaRVVCJY/hero-red-handprint-abstract-aTC2jNwq2b5L3LvPVbRckL.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 56rem;
+            text-align: center;
+        }
+
+        .hero-divider {
+            width: 0.25rem;
+            height: 3rem;
+            background-color: #dc2626;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #dc2626;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #b91c1c;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-divider {
+            width: 0.25rem;
+            height: 2rem;
+            background-color: #dc2626;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* Case at a Glance */
+        #case {
+            background-color: #fff;
+        }
+
+        .case-intro {
+            margin-bottom: 2rem;
+        }
+
+        .case-intro p {
+            font-size: 1.125rem;
+            color: #374151;
+            margin-top: 1.5rem;
+            max-width: 48rem;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .fact-card {
+            border-left: 4px solid #dc2626;
+            padding-left: 1.5rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .fact-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            color: #000;
+        }
+
+        .fact-card p {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        /* Collapsible Section */
+        .collapsible-button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            background-color: #fef2f2;
+            border: 2px solid #dc2626;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #000;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .collapsible-button:hover {
+            background-color: #fee2e2;
+        }
+
+        .chevron {
+            width: 2rem;
+            height: 2rem;
+            color: #dc2626;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .chevron.rotated {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            border-left: 4px solid #dc2626;
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+
+        .collapsible-content h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .collapsible-content h4 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #000;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .collapsible-content p {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .collapsible-content ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .collapsible-content li {
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+
+        .collapsible-content strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Mission Cards */
+        #mission {
+            background-color: #f3f4f6;
+        }
+
+        .mission-header h2 {
+            color: #000;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            border-bottom: 4px solid #dc2626;
+            padding: 1.5rem;
+        }
+
+        .card-header h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card-icon {
+            width: 2rem;
+            height: 2rem;
+            color: #dc2626;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content p {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .card-link:hover {
+            color: #b91c1c;
+        }
+
+        /* Community Voices */
+        #voices {
+            background-color: #000;
+            color: #fff;
+        }
+
+        #voices .section-header h2 {
+            color: #fff;
+        }
+
+        .voices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            border-left: 4px solid #dc2626;
+            padding-left: 1.5rem;
+            padding: 1.5rem;
+            background-color: #111827;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+        .testimonial p {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #f87171;
+        }
+
+        /* Call to Action */
+        #cta {
+            background-color: #dc2626;
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        #cta h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        #cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .btn-cta-primary {
+            background-color: #fff;
+            color: #dc2626;
+        }
+
+        .btn-cta-primary:hover {
+            background-color: #f3f4f6;
+        }
+
+        .btn-cta-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-cta-secondary:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Contact Form */
+        #contact {
+            background-color: #fff;
+        }
+
+        .form-card {
+            background-color: #f3f4f6;
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .form-header {
+            border-bottom: 4px solid #dc2626;
+            padding: 1.5rem;
+        }
+
+        .form-header h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .form-header p {
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+
+        .form-content {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #000;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background-color: #dc2626;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.125rem;
+        }
+
+        .btn-submit:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            border-top: 4px solid #dc2626;
+            padding: 3rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 64rem;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: #9ca3af;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #dc2626;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        .footer-logo {
+            width: 3rem;
+            height: 3rem;
+            opacity: 0.5;
+            margin: 0 auto 1rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-brand {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .nav-links {
+                width: 100%;
+                gap: 0.5rem;
+                font-size: 0.875rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .hero {
+                padding: 1rem;
+            }
+
+            .collapsible-button {
+                font-size: 1.25rem;
+                padding: 1rem 1.5rem;
+            }
+
+            .collapsible-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-brand">Justice for Cole</a>
+        <ul class="nav-links">
+            <li><a href="#case">Case</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#voices">Voices</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-divider"></div>
+            <h1>Justice for Cole Stump</h1>
+            <p>Cole was murdered by Billings Police on October 12, 2020, while committing no crime. We demand justice, accountability, and transparency.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Take Action →</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('case').scrollIntoView({behavior: 'smooth'})">Learn the Facts</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case at a Glance -->
+    <section id="case">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2>The Case at a Glance</h2>
+            </div>
+
+            <div class="case-intro">
+                <p>
+                    On October 12, 2020, Cole Stump, a 29-year-old Indigenous father of five from Rocky Boy Reservation, was shot and killed by Billings Police officers Justin Bickford and Ryland Nelson. Despite committing no crime, the shooting was deemed "justified" by an inquest jury. We refuse to accept this outcome and demand a full investigation into police conduct, evidence tampering, and systemic failures.
+                </p>
+            </div>
+
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <h3>The Shooting</h3>
+                    <p>Cole was shot by Billings Police on October 12, 2020, in circumstances that remain disputed and under investigation.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Evidence Tampering</h3>
+                    <p>Dispatch records (CAD logs) were altered 4 years after the shooting to edit information about the fire department responders.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Taser Timeline</h3>
+                    <p>Computer records show the Taser was fired 5 minutes after the shooting ended, contradicting the official narrative.</p>
+                </div>
+            </div>
+
+            <!-- Collapsible Full Facts -->
+            <button class="collapsible-button" onclick="toggleCollapsible()">
+                <span>Learn the Full Facts</span>
+                <svg class="chevron" id="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </button>
+
+            <div class="collapsible-content" id="collapsible">
+                <h3>The Shooting vs. The Forensic Reality</h3>
+                <p>
+                    The official police narrative describes a desperate fight for survival. Officers claim Cole gave a fake name, resisted handcuffing, fought four trained officers, and pulled a handgun from his waistband, prompting officers Bickford and Nelson to open fire.
+                </p>
+                <p>
+                    The physical and forensic evidence—as well as the officers' own statements—completely contradicts this story:
+                </p>
+                <ul>
+                    <li><strong>Complete Physical Control:</strong> While the department painted a picture of an uncontrollable threat, the reality was a man entirely pinned down. Cole was on the ground with all four officers on top of him. In his official interview, Officer Bickford explicitly stated that he had Cole's head trapped between his knees.</li>
+                    <li><strong>Staggering Physical Disparity:</strong> At 5'10" and barely 160 pounds, Cole was considerably smaller than the four trained, armed officers who surrounded him. They possessed every tactical advantage to de-escalate the situation using time, distance, and communication—instead, they chose to use eleven bullets.</li>
+                    <li><strong>Tools, Not Weapons:</strong> Original officer accounts and scene photographs show that Cole had a wrench in his hand, was holding his phone, and had a bicycle pump in his front right pocket.</li>
+                    <li><strong>Wounds of an Execution:</strong> Officers fired 11 bullets into Cole, striking him three times in the head, once in the neck, and multiple times through his torso and side. The autopsy reveals that the bullet entry angles were downward, not level. The trajectory proves Cole was already on the ground, incapacitated, when many of the shots were fired. He was not standing or charging; he was being finished off while down.</li>
+                    <li><strong>No Forensic Link to the Gun:</strong> Officers claim Cole threatened them with a handgun. Yet, forensic testing found <strong>zero fingerprints, zero blood, and zero DNA</strong> linking Cole to the weapon.</li>
+                    <li><strong>Contradictory Officer Testimony:</strong> All four officers who closely surrounded Cole testified at the inquest that he yelled he would shoot or kill them. However, during their initial interviews, two officers explicitly stated they never heard any such verbal threats and did not see a gun until <em>after</em> the shooting had already occurred.</li>
+                </ul>
+
+                <h3>Evidence Tampering & Digital Manipulation</h3>
+                <p>
+                    The body cameras that could have provided an objective record of the night did not exist; the department had not yet issued them. Instead, the investigation relied heavily on officer testimony and vehicle dash-cams—data that was systematically altered after the fact.
+                </p>
+
+                <h4>Edited WatchGuard Dash-Cam Logs</h4>
+                <p>
+                    Internal audit logs for the WatchGuard camera systems show that video files were manually renamed and reassigned to different officers' accounts after the shooting (e.g., one officer's video was suddenly moved under another officer's name). The department has never explained who made these manual changes or why.
+                </p>
+
+                <h4>The 4-Year CAD Log Edit</h4>
+                <p>
+                    Official Computer-Aided Dispatch (CAD) logs are supposed to be permanent, unalterable legal records. However, a direct comparison between CAD logs obtained via public records requests in 2022 and updated logs received in 2024 reveals clear alterations made <strong>four years after the shooting</strong> regarding the fire department responders.
+                </p>
+
+                <h4>Deleted and Altered Fire Logs</h4>
+                <p>
+                    The internal audit logs for the fire department prove that information wasn't just modified—critical data entries were entirely deleted. When requests were made for the raw metadata (the digital fingerprint proving exact times and GPS locations), the department's IT technician claimed not to know what metadata was.
+                </p>
+
+                <h4>The Taser Timeline Fraud</h4>
+                <p>
+                    The official story claims officers deployed a Taser during the initial struggle before escalating to lethal force. The Taser's internal computer records tell a different story: <strong>the Taser was activated nearly five minutes after the gunfire had already ended.</strong> This proves the department attempted to rewrite the chronological order of events to manufacture a justification for the shooting.
+                </p>
+
+                <h3>Crime Scene Failures & Missing Evidence</h3>
+                <p>
+                    The processing of the crime scene bypassed standard forensic protocols, resulting in missing evidence and destroyed biological data.
+                </p>
+                <ul>
+                    <li><strong>Prioritizing Photos Over Life:</strong> Evidence shows that officers immediately began taking photos of the scene and Cole's body before medical help arrived. Though equipped with first aid kits and tactical medical training, officers failed to perform CPR or attempt to stop the bleeding while waiting for the ambulance.</li>
+                    <li><strong>Destruction of DNA Evidence:</strong> Standard forensic procedure dictates that a recovered firearm must be tested for DNA and fingerprints before it is handled or fired. The police <strong>fired the handgun to test it before checking it for biological evidence</strong>, effectively destroying any DNA proof of who actually touched the weapon.</li>
+                    <li><strong>Missing Shell Casings:</strong> Officers fired 11 rounds into Cole, but investigators only recovered and sent 10 shell casings to the state crime lab. Furthermore, separate shell casings found in entirely different physical locations by different officers were inexplicably assigned the exact same evidence marker.</li>
+                    <li><strong>Mismatched Records:</strong> Public records reveal widespread discrepancies across paperwork, including conflicting ambulance unit numbers, altered evidence tag numbers, and severe timeline gaps where dispatch, fire, and EMS records fail to line up.</li>
+                </ul>
+
+                <h3>The Missing Police Car and GPS Tracking</h3>
+                <p>
+                    The department has actively covered up the presence of specific police units at the crime scene.
+                </p>
+                <ul>
+                    <li><strong>The Ghost Car (Unit 1428):</strong> The Billings Police Department officially stated that Unit 1428 was not on duty and was not present at the scene. This was proven false by dash-cam footage from another officer (Officer Farrell), which clearly captures Unit 1428 entering the alleyway at 10:42 PM.</li>
+                    <li><strong>Violating the GPS Policy:</strong> When asked for the location history of its vehicles, the department claimed they do not keep records of where their cars go. However, the city's own policy—<strong>Administrative Order 131</strong>—explicitly states that the police vehicle tracking system is built to maintain a permanent history of every car's real-time location and route.</li>
+                </ul>
+
+                <h3>Ignored Witnesses and Unidentified Individuals</h3>
+                <p>
+                    Investigators actively avoided tracking down individuals who contradicted the police narrative or could identify alternative suspects.
+                </p>
+                <ul>
+                    <li><strong>The "Lost" Witnesses:</strong> During the official hearings, the department told the court they were unable to locate key witnesses. In reality, Cole's family had emailed the department the exact locations and contact information of those witnesses two weeks prior. This included two women who were with Cole to help jump-start the car; they witnessed an officer throw Cole to the ground, but were never called to testify. Additionally, the husband of the initial 911 caller was never interviewed.</li>
+                    <li><strong>Unidentified Scene Pedestrians:</strong> Dash-cam video captures two unidentified individuals walking directly toward the scene right before the shots were fired, and walking away immediately afterward. They were never stopped, detoured, or questioned.</li>
+                    <li><strong>The Person Changing Clothes:</strong> Video evidence shows an individual completely changing their clothes right next to a parked police car inside the active, cordoned-on crime scene. Officers were present next to this person, yet they were completely ignored and never identified.</li>
+                </ul>
+
+                <h3>A Rigged Inquest</h3>
+                <p>
+                    The 2022 coroner's inquest was not an independent pursuit of truth. It was a closed system designed to clear the department of wrongdoing:
+                </p>
+                <ul>
+                    <li><strong>Conflict of Interest:</strong> The inquest was run by the same county attorney's office that works hand-in-hand with the Billings Police Department daily.</li>
+                    <li><strong>Lack of Representation:</strong> There were zero Native American jurors on the panel, despite Cole being an Indigenous man killed on Indigenous Peoples' Day.</li>
+                    <li><strong>Silenced Evidence:</strong> No outside forensic experts were permitted, and Cole's family was given no room to present the altered logs, missing casings, or downward bullet trajectories they uncovered.</li>
+                    <li><strong>Erasure of the Victim:</strong> The county attorney focused almost exclusively on the emotional impact of the shooting on the officers, barely acknowledging Cole's family or his six-month-old son.</li>
+                </ul>
+                <p>
+                    The jury returned a verdict of "justified" after hearing only the heavily curated, altered version of events presented by the police.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission">
+        <div class="container">
+            <div class="section-header mission-header">
+                <div class="section-divider"></div>
+                <h2>Our Mission</h2>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>
+                            <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Investigation & Transparency
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <p>We host forensic evidence, timelines, and digital logs related to the police-involved shooting. Every document is available for journalists, researchers, and advocates to examine.</p>
+                        <a href="#" class="card-link">View Evidence Vault →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>
+                            <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-2a6 6 0 0112 0v2zm0 0h6v-2a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            MMIP Advocacy
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Cole's case is part of the broader Missing and Murdered Indigenous People (MMIP) crisis. We connect local justice efforts with national advocacy movements and resources.</p>
+                        <a href="#" class="card-link">Learn About MMIP →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>
+                            <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Interactive Timeline
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Explore a detailed chronology of events from October 12, 2020, to the present. Click on timestamps to view corresponding evidence and witness statements.</p>
+                        <a href="#" class="card-link">View Timeline →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>
+                            <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6a3 3 0 013-3h10a1 1 0 01.8.4l5.7 7.14a1 1 0 01-.8 1.6H4a1 1 0 01-1-1V6z"></path>
+                            </svg>
+                            Legal Resources
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Access legal documents, court filings, and information about ongoing investigations. Transparency is not a request—it's a right.</p>
+                        <a href="#" class="card-link">Access Documents →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>
+                            <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            Memorial Gallery
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <p>A collection of photos honoring Cole Stump's memory and the ongoing fight for justice. Share your memories with the community.</p>
+                        <a href="#" class="card-link">View Gallery →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Voices -->
+    <section id="voices">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2>Community Voices</h2>
+            </div>
+
+            <div class="voices-grid">
+                <div class="testimonial">
+                    <p>"Transparency is not a request; it's a right. To the Billings Police Department, my brother is a case number or a 'justified' headline. But to us, he was a father, a son, and a human being."</p>
+                    <p class="testimonial-author">— Cole's Family</p>
+                </div>
+
+                <div class="testimonial">
+                    <p>"I never thought I'd have to spend years of my life begging for justice. But we will not stop until there is accountability for Cole."</p>
+                    <p class="testimonial-author">— Tasheena Duran (Cole's sister)</p>
+                </div>
+
+                <div class="testimonial">
+                    <p>"Cole was an Indigenous father of 5 from Rocky Boy. His case represents the systemic failures that plague our communities. We stand in solidarity."</p>
+                    <p class="testimonial-author">— MMIP Movement</p>
+                </div>
+
+                <div class="testimonial">
+                    <p>"Thank you all for helping keep this page strong. Five years of advocacy, and we're not stopping until there is justice."</p>
+                    <p class="testimonial-author">— Justice for Cole Stump Page</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="cta">
+        <h2>Stand with Us</h2>
+        <p>Sign the petition, contact elected officials, share Cole's story, and support the MMIP movement. Every action counts.</p>
+        <div class="cta-buttons">
+            <button class="btn btn-cta-primary">❤️ Sign the Petition</button>
+            <button class="btn btn-cta-secondary">Contact Officials</button>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2>Get Involved</h2>
+            </div>
+
+            <div class="form-card">
+                <div class="form-header">
+                    <h3>Send Us a Message</h3>
+                    <p>Share information, ask questions, or express your support for justice.</p>
+                </div>
+                <div class="form-content">
+                    <form onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Share your message, evidence, or support..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Justice for Cole Stump</h3>
+                <p>Dedicated to investigating the death of Cole Stump and advancing the MMIP movement.</p>
+            </div>
+            <div class="footer-section">
+                <h3 style="color: #f87171;">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#case">The Case</a></li>
+                    <li><a href="#contact">Get Involved</a></li>
+                    <li><a href="#">Evidence Vault</a></li>
+                    <li><a href="#">MMIP Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 style="color: #f87171;">Contact</h3>
+                <p>Email: justiceforcolestump@gmail.com</p>
+                <p>Website: justiceforcolestump.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663537280650/ZKh5pnRsd8bur4HaRVVCJY/mmip-handprint-watermark-7WbtBsvbJ9DfnQzwBuqqCa.webp" alt="MMIP Red Handprint" class="footer-logo">
+            <p>© 2024 Justice for Cole Stump. Transparency is not a request. It's a right.</p>
+            <p>#JusticeForCole #MMIP #MMIWG2S #NoMoreStolenSisters</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleCollapsible() {
+            const content = document.getElementById('collapsible');
+            const chevron = document.getElementById('chevron');
+            content.classList.toggle('active');
+            chevron.classList.toggle('rotated');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                alert('Message received. We will respond soon.');
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                alert('Please fill in all fields');
+            }
+        }
+    </script>
+</body>
 </html>
