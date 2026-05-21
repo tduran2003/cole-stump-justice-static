@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice for Cole Stump - MMIP Advocacy & Transparency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #000;
+            border-bottom: 4px solid #dc2626;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-brand::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background-color: #dc2626;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #dc2626;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663537280650/ZKh5pnRsd8bur4HaRVVCJY/hero-red-handprint-abstract-aTC2jNwq2b5L3LvPVbRckL.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 2rem;
+            color: #fff;
+        }
+
+        .hero-accent {
+            width: 4px;
+            height: 48px;
+            background-color: #dc2626;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: #dc2626;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #b91c1c;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Case at a Glance */
+        .case-section {
+            padding: 5rem 2rem;
+            background-color: #fff;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-accent {
+            width: 4px;
+            height: 32px;
+            background-color: #dc2626;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .case-intro {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 2rem 0;
+            line-height: 1.8;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .case-card {
+            border-left: 4px solid #dc2626;
+            padding-left: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        .case-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .case-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Mission Cards Section */
+        .mission-section {
+            padding: 5rem 2rem;
+            background-color: #f9fafb;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .mission-card {
+            background-color: #fff;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #dc2626;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            transition: box-shadow 0.3s;
+        }
+
+        .mission-card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .mission-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .mission-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .mission-card p {
+            color: #666;
+            margin: 1rem 0;
+            line-height: 1.7;
+        }
+
+        .mission-card a {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .mission-card a:hover {
+            color: #b91c1c;
+        }
+
+        /* Community Voices */
+        .voices-section {
+            padding: 5rem 2rem;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .voices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .voice-card {
+            border-left: 4px solid #dc2626;
+            padding-left: 1.5rem;
+            padding: 1.5rem;
+            background-color: #1f2937;
+            border-radius: 0.25rem;
+        }
+
+        .voice-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .voice-card .attribution {
+            font-weight: bold;
+            color: #f87171;
+        }
+
+        /* Evidence Vault */
+        .vault-section {
+            padding: 5rem 2rem;
+            background-color: #fff;
+        }
+
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .document-card {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-top: 4px solid #dc2626;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .document-card:hover {
+            box-shadow: 0 10px 15px rgba(220, 38, 38, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .document-badge {
+            display: inline-block;
+            background-color: #fecaca;
+            color: #7f1d1d;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .document-card h4 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .document-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .document-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .doc-btn {
+            flex: 1;
+            padding: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .doc-btn-view {
+            background-color: #dc2626;
+            color: #fff;
+        }
+
+        .doc-btn-view:hover {
+            background-color: #b91c1c;
+        }
+
+        .doc-btn-download {
+            background-color: #e5e7eb;
+            color: #000;
+        }
+
+        .doc-btn-download:hover {
+            background-color: #d1d5db;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background-color: #f9fafb;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #dc2626;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25rem;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background-color: #dc2626;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-submit:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 3rem 2rem;
+            border-top: 4px solid #dc2626;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #dc2626;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">Justice for Cole</div>
+        <ul class="nav-links">
+            <li><a href="#case">Case</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#vault">Evidence</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-accent"></div>
+            <h1>Justice for Cole Stump</h1>
+            <p>Cole was murdered by Billings Police on October 12, 2020, while committing no crime. We demand justice, accountability, and transparency.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Take Action →</a>
+                <a href="#case" class="btn btn-secondary">Learn the Facts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case at a Glance -->
+    <section class="case-section" id="case">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-accent"></div>
+                <h2>The Case at a Glance</h2>
+            </div>
+            <p class="case-intro">
+                On October 12, 2020, Cole Stump, a 29-year-old Indigenous father of four from Rocky Boy Reservation, was shot and killed by Billings Police. Despite committing no crime, Cole was deemed "justified" by an inquest jury. We refuse to accept this outcome and demand a full investigation into police conduct, evidence tampering, and systemic failures.
+            </p>
+            <div class="case-grid">
+                <div class="case-card">
+                    <h3>The Shooting</h3>
+                    <p>Cole was shot by Billings Police on October 12, 2020, in circumstances that remain disputed and under investigation.</p>
+                </div>
+                <div class="case-card">
+                    <h3>Evidence Tampering</h3>
+                    <p>Dispatch records (CAD logs) were altered 4 years after the shooting to edit information about the fire department response.</p>
+                </div>
+                <div class="case-card">
+                    <h3>Taser Timeline</h3>
+                    <p>Computer records show the Taser was fired 5 minutes after the shooting ended, contradicting the official narrative.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section" id="mission">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-accent"></div>
+                <h2>Our Mission</h2>
+            </div>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-card-header">
+                        <span>📋</span>
+                        <h3>Investigation & Transparency</h3>
+                    </div>
+                    <p>We host forensic evidence, timelines, and digital logs related to the police-involved shooting. Every document is available for journalists, researchers, and advocates to examine.</p>
+                    <a href="#vault">View Evidence Vault →</a>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-card-header">
+                        <span>👥</span>
+                        <h3>MMIP Advocacy</h3>
+                    </div>
+                    <p>Cole's case is part of the broader Missing and Murdered Indigenous People (MMIP) crisis. We connect local justice efforts with national advocacy movements and resources.</p>
+                    <a href="#">Learn About MMIP →</a>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-card-header">
+                        <span>⏱️</span>
+                        <h3>Interactive Timeline</h3>
+                    </div>
+                    <p>Explore a detailed chronology of events from October 12, 2020, to the present. Click on timestamps to view corresponding evidence and witness statements.</p>
+                    <a href="#">View Timeline →</a>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-card-header">
+                        <span>⚖️</span>
+                        <h3>Legal Resources</h3>
+                    </div>
+                    <p>Access legal documents, court filings, and information about ongoing investigations. Transparency is not a request—it's a right.</p>
+                    <a href="#vault">Access Documents →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Voices -->
+    <section class="voices-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-accent"></div>
+                <h2>Community Voices</h2>
+            </div>
+            <div class="voices-grid">
+                <div class="voice-card">
+                    <p>"Transparency is not a request; it's a right. To the Billings Police Department, my brother is a case number or a 'justified' headline. But to us, he was a father, a son, and a human being."</p>
+                    <div class="attribution">— Cole's Family</div>
+                </div>
+                <div class="voice-card">
+                    <p>"I never thought I'd have to spend years of my life begging for justice. But we will not stop until there is accountability for Cole."</p>
+                    <div class="attribution">— Community Advocate</div>
+                </div>
+                <div class="voice-card">
+                    <p>"Cole was an Indigenous father of 4 from Rocky Boy. His case represents the systemic failures that plague our communities. We stand in solidarity."</p>
+                    <div class="attribution">— MMIP Movement</div>
+                </div>
+                <div class="voice-card">
+                    <p>"Thank you all for helping keep this page strong. Five years of advocacy, and we're not stopping until there is justice."</p>
+                    <div class="attribution">— Justice for Cole Stump Page</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evidence Vault -->
+    <section class="vault-section" id="vault">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-accent"></div>
+                <h2>Evidence Vault</h2>
+            </div>
+            <p class="case-intro">
+                All documents related to Cole's case are available below. Click to view in your browser or download for offline access. Every document is a public record.
+            </p>
+            <div class="vault-grid">
+                <div class="document-card">
+                    <span class="document-badge">PUBLIC RECORDS</span>
+                    <h4>Duran Subsequent PRR</h4>
+                    <p>Public records request documents regarding Officer Duran's involvement.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/duran-subsequent-prr.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/duran-subsequent-prr.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">PUBLIC RECORDS</span>
+                    <h4>Duran 5th PRR</h4>
+                    <p>Fifth public records request regarding Officer Duran.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/duran-5th-prr.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/duran-5th-prr.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">PUBLIC RECORDS</span>
+                    <h4>Duran Nerbovig PRR</h4>
+                    <p>Public records request regarding Officer Duran and Nerbovig.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/duran-nerbovig-prr.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/duran-nerbovig-prr.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">PUBLIC RECORDS</span>
+                    <h4>Cole Stump PRR</h4>
+                    <p>Public records request for Cole Stump's case file.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/cole-stump-prr.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/cole-stump-prr.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">LEGAL DOCUMENT</span>
+                    <h4>Inquest Transcription</h4>
+                    <p>Complete transcription of the inquest proceedings.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/inquest-transcription.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/inquest-transcription.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">OFFICER REPORT</span>
+                    <h4>Officer Schultz Report</h4>
+                    <p>Official report filed by Officer Schultz.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/officer-report-schultz.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/officer-report-schultz.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">OFFICER REPORT</span>
+                    <h4>Officer Richardson Report</h4>
+                    <p>Official report filed by Officer Richardson.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/officer-report-richardson.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/officer-report-richardson.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">OFFICER REPORT</span>
+                    <h4>Officer Lane Report</h4>
+                    <p>Official report filed by Officer Lane.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/officer-report-lane.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/officer-report-lane.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">OFFICER REPORT</span>
+                    <h4>Officer Kammerzell Report</h4>
+                    <p>Official report filed by Officer Kammerzell.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/officer-report-kammerzell.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/officer-report-kammerzell.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">WITNESS STATEMENT</span>
+                    <h4>Nelson Statement</h4>
+                    <p>Witness statement from Nelson.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/witness-statement-nelson.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/witness-statement-nelson.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">WITNESS STATEMENT</span>
+                    <h4>Vladic Statement</h4>
+                    <p>Witness statement from Vladic.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/witness-statement-vladic.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/witness-statement-vladic.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">WITNESS STATEMENT</span>
+                    <h4>Grommes Statement</h4>
+                    <p>Witness statement from Grommes.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/witness-statement-grommes.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/witness-statement-grommes.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">WITNESS STATEMENT</span>
+                    <h4>Bickford Statement</h4>
+                    <p>Witness statement from Bickford.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/witness-statement-bickford.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/witness-statement-bickford.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">WITNESS STATEMENT</span>
+                    <h4>Fox Statement</h4>
+                    <p>Witness statement from Fox.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/witness-statement-fox.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/witness-statement-fox.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">DISPATCH RECORDS</span>
+                    <h4>AVL Data</h4>
+                    <p>Automatic Vehicle Location (AVL) GPS tracking data.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/avl-data.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/avl-data.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <span class="document-badge">DISPATCH RECORDS</span>
+                    <h4>Dispatch Records</h4>
+                    <p>Official dispatch logs and CAD records from October 12, 2020.</p>
+                    <div class="document-buttons">
+                        <a href="/documents/dispatch-records.pdf" target="_blank" class="doc-btn doc-btn-view">View PDF</a>
+                        <a href="/documents/dispatch-records.pdf" download class="doc-btn doc-btn-download">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-accent"></div>
+                <h2>Get Involved</h2>
+            </div>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Justice for Cole Stump</h3>
+                    <p>Dedicated to investigating the death of Cole Stump and advancing the MMIP movement. Transparency is not a request. It's a right.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#case">The Case</a></li>
+                        <li><a href="#mission">Our Mission</a></li>
+                        <li><a href="#vault">Evidence Vault</a></li>
+                        <li><a href="#contact">Get Involved</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: justiceforcolestump@gmail.com</p>
+                    <p>Website: www.justice4colestump.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Justice for Cole Stump. #JusticeForCole #MMIP #MMIWG2S #NoMoreStolenSisters</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
