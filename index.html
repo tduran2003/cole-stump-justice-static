@@ -1,425 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cole Stump Justice & MMIP Advocacy Portal</title>
-  <meta name="description" content="Justice for Cole Stump - A digital advocacy portal demanding justice, accountability, and transparency.">
-  <meta property="og:title" content="Cole Stump Justice & MMIP Advocacy Portal">
-  <meta property="og:description" content="A high-impact, investigative, and memorial website dedicated to the case of Cole Stump and the MMIP crisis.">
-  <meta property="og:type" content="website">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1779316982">
-  <style>
-    .collapsible-btn {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.5rem 2rem;
-      background-color: #fef2f2;
-      border: 2px solid #dc2626;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #000;
-      margin-top: 2rem;
+import { getLoginUrl } from "@/const";
+import { trpc } from "@/lib/trpc";
+import { TRPCClientError } from "@trpc/client";
+import { useCallback, useEffect, useMemo } from "react";
+
+type UseAuthOptions = {
+  redirectOnUnauthenticated?: boolean;
+  redirectPath?: string;
+};
+
+export function useAuth(options?: UseAuthOptions) {
+  const { redirectOnUnauthenticated = false, redirectPath = getLoginUrl() } =
+    options ?? {};
+  const utils = trpc.useUtils();
+
+  const meQuery = trpc.auth.me.useQuery(undefined, {
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
+  const logoutMutation = trpc.auth.logout.useMutation({
+    onSuccess: () => {
+      utils.auth.me.setData(undefined, null);
+    },
+  });
+
+  const logout = useCallback(async () => {
+    try {
+      await logoutMutation.mutateAsync();
+    } catch (error: unknown) {
+      if (
+        error instanceof TRPCClientError &&
+        error.data?.code === "UNAUTHORIZED"
+      ) {
+        return;
+      }
+      throw error;
+    } finally {
+      utils.auth.me.setData(undefined, null);
+      await utils.auth.me.invalidate();
     }
-    
-    .collapsible-btn:hover {
-      background-color: #fee2e2;
-    }
-    
-    .collapsible-btn .chevron {
-      width: 2rem;
-      height: 2rem;
-      color: #dc2626;
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-    }
-    
-    .collapsible-btn.active .chevron {
-      transform: rotate(180deg);
-    }
-    
-    .collapsible-content {
-      display: none;
-      margin-top: 2rem;
-      padding: 2rem;
-      background-color: #f9fafb;
-      border-left: 4px solid #dc2626;
-      line-height: 1.8;
-    }
-    
-    .collapsible-content.active {
-      display: block;
-    }
-    
-    .collapsible-content h3 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #000;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .collapsible-content h4 {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: #000;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .collapsible-content p {
-      color: #4b5563;
-      margin-bottom: 1rem;
-    }
-    
-    .collapsible-content ul {
-      list-style: disc;
-      margin-left: 2rem;
-      margin-bottom: 1rem;
-    }
-    
-    .collapsible-content li {
-      color: #4b5563;
-      margin-bottom: 0.75rem;
-    }
-    
-    .collapsible-content strong {
-      color: #000;
-      font-weight: 700;
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation Header -->
-  <header class="bg-black text-white sticky top-0 z-50 border-b-2 border-red-600">
-    <div class="container max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between py-4">
-        <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
-          <div class="w-1 h-6 bg-red-600"></div>
-          <span class="font-bold text-lg text-white">Justice for Cole</span>
-        </a>
-        <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
-        <nav class="hidden md:flex gap-8">
-          <a href="index.html" class="text-white font-semibold hover:text-red-600 transition">Home</a>
-          <a href="evidence-vault.html" class="text-white font-semibold hover:text-red-600 transition">Evidence Vault</a>
-          <a href="timeline.html" class="text-white font-semibold hover:text-red-600 transition">Timeline</a>
-          <a href="vigil.html" class="text-white font-semibold hover:text-red-600 transition">Digital Vigil</a>
-          <a href="gallery.html" class="text-white font-semibold hover:text-red-600 transition">Memorial Gallery</a>
-          <a href="youtube.html" class="text-white font-semibold hover:text-red-600 transition">Watch Guard Videos</a>
-          <a href="mmip-resources.html" class="text-white font-semibold hover:text-red-600 transition">MMIP Resources</a>
-        </nav>
-      </div>
-      <nav class="mobile-nav hidden flex-col gap-2 pb-4" id="mobileNav">
-        <a href="index.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Home</a>
-        <a href="evidence-vault.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Evidence Vault</a>
-        <a href="timeline.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Timeline</a>
-        <a href="vigil.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Digital Vigil</a>
-        <a href="gallery.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Memorial Gallery</a>
-        <a href="youtube.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Watch Guard Videos</a>
-        <a href="mmip-resources.html" class="text-white font-semibold hover:text-red-600 transition block py-2">MMIP Resources</a>
-      </nav>
-    </div>
-  </header>
+  }, [logoutMutation, utils]);
 
-  <!-- Main Content -->
-  <main class="min-h-screen bg-black text-white">
-    <!-- Hero Section with Handprint -->
-    <section class="hero-section bg-black text-white py-20 px-4 relative overflow-hidden">
-      <div class="handprint-bg"></div>
-      <div class="container max-w-6xl mx-auto relative z-10 text-center">
-        <h1 class="text-5xl md:text-6xl font-black font-serif text-white mb-6">Justice for Cole Stump</h1>
-        <p class="text-xl md:text-2xl text-white font-semibold mb-8 max-w-2xl mx-auto">
-          Cole was murdered by Billings Police on October 12, 2020, while committing no crime. We demand justice, accountability, and transparency.
-        </p>
-        <div class="flex gap-4 justify-center flex-wrap">
-          <button class="btn btn-primary" onclick="window.location.href='evidence-vault.html'">Learn the Facts →</button>
-          <button class="btn btn-secondary" onclick="window.location.href='vigil.html'">Join the Vigil</button>
-        </div>
-      </div>
-    </section>
+  const state = useMemo(() => {
+    localStorage.setItem(
+      "manus-runtime-user-info",
+      JSON.stringify(meQuery.data)
+    );
+    return {
+      user: meQuery.data ?? null,
+      loading: meQuery.isLoading || logoutMutation.isPending,
+      error: meQuery.error ?? logoutMutation.error ?? null,
+      isAuthenticated: Boolean(meQuery.data),
+    };
+  }, [
+    meQuery.data,
+    meQuery.error,
+    meQuery.isLoading,
+    logoutMutation.error,
+    logoutMutation.isPending,
+  ]);
 
-    <!-- The Case Section -->
-    <section class="bg-black text-white py-16 px-4 border-t-2 border-red-600">
-      <div class="container max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-white mb-12">The Case at a Glance</h2>
-        
-        <div class="bg-gray-900 border-l-4 border-red-600 p-8 mb-8">
-          <p class="text-lg text-white font-semibold mb-6">
-            On October 12, 2020, Cole Stump, a 29-year-old Indigenous father of five from Rocky Boy Reservation, was shot and killed by Billings Police officers Justin Bickford and Ryland Nelson. Despite committing no crime, the shooting was deemed "justified" by an inquest jury. We refuse to accept this outcome and demand a full investigation into police conduct, evidence tampering, and systemic failures.
-          </p>
-        </div>
+  useEffect(() => {
+    if (!redirectOnUnauthenticated) return;
+    if (meQuery.isLoading || logoutMutation.isPending) return;
+    if (state.user) return;
+    if (typeof window === "undefined") return;
+    if (window.location.pathname === redirectPath) return;
 
-        <div class="grid md:grid-cols-3 gap-6 mb-12">
-          <div class="bg-gray-900 border border-red-600 p-6">
-            <h3 class="text-xl font-bold text-white mb-3">The Shooting</h3>
-            <p class="text-white font-semibold">Cole was shot by Billings Police on October 12, 2020, in circumstances that remain disputed and under investigation.</p>
-          </div>
-          <div class="bg-gray-900 border border-red-600 p-6">
-            <h3 class="text-xl font-bold text-white mb-3">Evidence Tampering</h3>
-            <p class="text-white font-semibold">Dispatch records (CAD logs) were altered 4 years after the shooting to edit information about the fire department responders.</p>
-          </div>
-          <div class="bg-gray-900 border border-red-600 p-6">
-            <h3 class="text-xl font-bold text-white mb-3">Taser Timeline</h3>
-            <p class="text-white font-semibold">Computer records show the Taser was fired 5 minutes after the shooting ended, contradicting the official narrative.</p>
-          </div>
-        </div>
+    window.location.href = redirectPath
+  }, [
+    redirectOnUnauthenticated,
+    redirectPath,
+    logoutMutation.isPending,
+    meQuery.isLoading,
+    state.user,
+  ]);
 
-        <!-- Collapsible Full Facts Section -->
-        <button class="collapsible-btn" onclick="toggleCollapsible(this)">
-          <span>Learn the Full Facts</span>
-          <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </button>
-
-        <div class="collapsible-content">
-          <h3>The Shooting vs. The Forensic Reality</h3>
-          <p>
-            The official police narrative describes a desperate fight for survival. Officers claim Cole gave a fake name, resisted handcuffing, fought four trained officers, and pulled a handgun from his waistband, prompting officers Bickford and Nelson to open fire.
-          </p>
-          <p>
-            The physical and forensic evidence—as well as the officers' own statements—completely contradicts this story:
-          </p>
-          <ul>
-            <li><strong>Complete Physical Control:</strong> While the department painted a picture of an uncontrollable threat, the reality was a man entirely pinned down. Cole was on the ground with all four officers on top of him. In his official interview, Officer Bickford explicitly stated that he had Cole's head trapped between his knees.</li>
-            <li><strong>Staggering Physical Disparity:</strong> At 5'10" and barely 160 pounds, Cole was considerably smaller than the four trained, armed officers who surrounded him. They possessed every tactical advantage to de-escalate the situation using time, distance, and communication—instead, they chose to use eleven bullets.</li>
-            <li><strong>Tools, Not Weapons:</strong> Original officer accounts and scene photographs show that Cole had a wrench in his hand, was holding his phone, and had a bicycle pump in his front right pocket.</li>
-            <li><strong>Wounds of an Execution:</strong> Officers fired 11 bullets into Cole, striking him three times in the head, once in the neck, and multiple times through his torso and side. The autopsy reveals that the bullet entry angles were downward, not level. The trajectory proves Cole was already on the ground, incapacitated, when many of the shots were fired. He was not standing or charging; he was being finished off while down.</li>
-            <li><strong>No Forensic Link to the Gun:</strong> Officers claim Cole threatened them with a handgun. Yet, forensic testing found <strong>zero fingerprints, zero blood, and zero DNA</strong> linking Cole to the weapon.</li>
-            <li><strong>Contradictory Officer Testimony:</strong> All four officers who closely surrounded Cole testified at the inquest that he yelled he would shoot or kill them. However, during their initial interviews, two officers explicitly stated they never heard any such verbal threats and did not see a gun until <em>after</em> the shooting had already occurred.</li>
-          </ul>
-
-          <h3>Evidence Tampering & Digital Manipulation</h3>
-          <p>
-            The body cameras that could have provided an objective record of the night did not exist; the department had not yet issued them. Instead, the investigation relied heavily on officer testimony and vehicle dash-cams—data that was systematically altered after the fact.
-          </p>
-
-          <h4>Edited WatchGuard Dash-Cam Logs</h4>
-          <p>
-            Internal audit logs for the WatchGuard camera systems show that video files were manually renamed and reassigned to different officers' accounts after the shooting (e.g., one officer's video was suddenly moved under another officer's name). The department has never explained who made these manual changes or why.
-          </p>
-
-          <h4>The 4-Year CAD Log Edit</h4>
-          <p>
-            Official Computer-Aided Dispatch (CAD) logs are supposed to be permanent, unalterable legal records. However, a direct comparison between CAD logs obtained via public records requests in 2022 and updated logs received in 2024 reveals clear alterations made <strong>four years after the shooting</strong> regarding the fire department responders.
-          </p>
-
-          <h4>Deleted and Altered Fire Logs</h4>
-          <p>
-            The internal audit logs for the fire department prove that information wasn't just modified—critical data entries were entirely deleted. When requests were made for the raw metadata (the digital fingerprint proving exact times and GPS locations), the department's IT technician claimed not to know what metadata was.
-          </p>
-
-          <h4>The Taser Timeline Fraud</h4>
-          <p>
-            The official story claims officers deployed a Taser during the initial struggle before escalating to lethal force. The Taser's internal computer records tell a different story: <strong>the Taser was activated nearly five minutes after the gunfire had already ended.</strong> This proves the department attempted to rewrite the chronological order of events to manufacture a justification for the shooting.
-          </p>
-
-          <h3>Crime Scene Failures & Missing Evidence</h3>
-          <p>
-            The processing of the crime scene bypassed standard forensic protocols, resulting in missing evidence and destroyed biological data.
-          </p>
-          <ul>
-            <li><strong>Prioritizing Photos Over Life:</strong> Evidence shows that officers immediately began taking photos of the scene and Cole's body before medical help arrived. Though equipped with first aid kits and tactical medical training, officers failed to perform CPR or attempt to stop the bleeding while waiting for the ambulance.</li>
-            <li><strong>Destruction of DNA Evidence:</strong> Standard forensic procedure dictates that a recovered firearm must be tested for DNA and fingerprints before it is handled or fired. The police <strong>fired the handgun to test it before checking it for biological evidence</strong>, effectively destroying any DNA proof of who actually touched the weapon.</li>
-            <li><strong>Missing Shell Casings:</strong> Officers fired 11 rounds into Cole, but investigators only recovered and sent 10 shell casings to the state crime lab. Furthermore, separate shell casings found in entirely different physical locations by different officers were inexplicably assigned the exact same evidence marker.</li>
-            <li><strong>Mismatched Records:</strong> Public records reveal widespread discrepancies across paperwork, including conflicting ambulance unit numbers, altered evidence tag numbers, and severe timeline gaps where dispatch, fire, and EMS records fail to line up.</li>
-          </ul>
-
-          <h3>The Missing Police Car and GPS Tracking</h3>
-          <p>
-            The department has actively covered up the presence of specific police units at the crime scene.
-          </p>
-          <ul>
-            <li><strong>The Ghost Car (Unit 1428):</strong> The Billings Police Department officially stated that Unit 1428 was not on duty and was not present at the scene. This was proven false by dash-cam footage from another officer (Officer Farrell), which clearly captures Unit 1428 entering the alleyway at 10:42 PM.</li>
-            <li><strong>Violating the GPS Policy:</strong> When asked for the location history of its vehicles, the department claimed they do not keep records of where their cars go. However, the city's own policy—<strong>Administrative Order 131</strong>—explicitly states that the police vehicle tracking system is built to maintain a permanent history of every car's real-time location and route.</li>
-          </ul>
-
-          <h3>Ignored Witnesses and Unidentified Individuals</h3>
-          <p>
-            Investigators actively avoided tracking down individuals who contradicted the police narrative or could identify alternative suspects.
-          </p>
-          <ul>
-            <li><strong>The "Lost" Witnesses:</strong> During the official hearings, the department told the court they were unable to locate key witnesses. In reality, Cole's family had emailed the department the exact locations and contact information of those witnesses two weeks prior. This included two women who were with Cole to help jump-start the car; they witnessed an officer throw Cole to the ground, but were never called to testify. Additionally, the husband of the initial 911 caller was never interviewed.</li>
-            <li><strong>Unidentified Scene Pedestrians:</strong> Dash-cam video captures two unidentified individuals walking directly toward the scene right before the shots were fired, and walking away immediately afterward. They were never stopped, detoured, or questioned.</li>
-            <li><strong>The Person Changing Clothes:</strong> Video evidence shows an individual completely changing their clothes right next to a parked police car. Officers were present next to this person, yet they were completely ignored and never identified.</li>
-          </ul>
-
-          <h3>A Rigged Inquest</h3>
-          <p>
-            The 2022 coroner's inquest was not an independent pursuit of truth. It was a closed system designed to clear the department of wrongdoing:
-          </p>
-          <ul>
-            <li><strong>Conflict of Interest:</strong> The inquest was run by the same county attorney's office that works hand-in-hand with the Billings Police Department daily.</li>
-            <li><strong>Lack of Representation:</strong> There were zero Native American jurors on the panel, despite Cole being an Indigenous man killed on Indigenous Peoples' Day.</li>
-            <li><strong>Silenced Evidence:</strong> No outside forensic experts were permitted, and Cole's family was given no room to ask questions and were not given the altered logs, missing casings, or downward bullet trajectories until after extensive requests and costs.</li>
-            <li><strong>Erasure of the Victim:</strong> The county attorney focused almost exclusively on the emotional impact of the shooting on the officers, barely acknowledging Cole's family or his six-month-old son.</li>
-          </ul>
-          <p>
-            The jury returned a verdict of "justified" after hearing only the heavily curated, altered version of events presented by the police.
-          </p>
-
-          <h3>Demand Justice for Cole</h3>
-          <p>
-            Cole Stump was gunned down within minutes of police arrival, and the system rushed to defend the shooters instead of investigating the truth. This case highlights a dangerous pattern of police violence against Indigenous people and a systemic failure in how police shootings are investigated.
-          </p>
-          <p>
-            We have had to fight for every document, every log, and every second of video. The truth exists within the very records they tried to bury. Until every inconsistency is answered and those responsible for evidence tampering are held accountable, we will not stop demanding justice.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Community Voices Section -->
-    <section class="bg-gray-900 text-white py-16 px-4 border-t-2 border-red-600">
-      <div class="container max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-white mb-12">Community Voices</h2>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-black border-l-4 border-red-600 p-8">
-            <p class="text-lg text-white font-semibold mb-4">
-              "Transparency is not a request; it's a right. To the Billings Police Department, my brother is a case number or a 'justified' headline. But to us, he was a father, a son, and a human being."
-            </p>
-            <p class="text-red-600 font-bold">— Cole's Family</p>
-          </div>
-          
-          <div class="bg-black border-l-4 border-red-600 p-8">
-            <p class="text-lg text-white font-semibold mb-4">
-              "I never thought I'd have to spend years of my life begging for justice. But we will not stop until there is accountability for Cole."
-            </p>
-            <p class="text-red-600 font-bold">— Tasheena Duran (Cole's sister)</p>
-          </div>
-          
-          <div class="bg-black border-l-4 border-red-600 p-8">
-            <p class="text-lg text-white font-semibold mb-4">
-              "Cole was an Indigenous father of 5 from Rocky Boy. His case represents the systemic failures that plague our communities. We stand in solidarity."
-            </p>
-            <p class="text-red-600 font-bold">— MMIP Movement</p>
-          </div>
-          
-          <div class="bg-black border-l-4 border-red-600 p-8">
-            <p class="text-lg text-white font-semibold mb-4">
-              "Thank you all for helping keep this page strong. Five years of advocacy, and we're not stopping until there is justice."
-            </p>
-            <p class="text-red-600 font-bold">— Justice for Cole Stump Page</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stand with Us Section -->
-    <section class="bg-red-600 text-white py-16 px-4">
-      <div class="container max-w-6xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-white mb-8">Stand with Us</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto">
-          Sign the petition, contact elected officials, share Cole's story, and support the MMIP movement. Every action counts.
-        </p>
-        <div class="flex gap-4 justify-center flex-wrap">
-          <button class="btn btn-white" onclick="alert('Petition feature coming soon')">Sign the Petition</button>
-          <button class="btn btn-white" onclick="alert('Contact feature coming soon')">Contact Officials</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="bg-white text-black py-16 px-4">
-      <div class="container max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-black mb-12">Get Involved</h2>
-        
-        <div class="max-w-2xl mx-auto">
-          <h3 class="text-2xl font-bold text-black mb-6">Send Us a Message</h3>
-          <p class="text-gray-700 mb-8">Share information, ask questions, or express your support for justice.</p>
-          
-          <form onsubmit="handleFormSubmit(event)" class="space-y-6">
-            <div>
-              <label class="block text-black font-semibold mb-2">Full Name</label>
-              <input type="text" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-red-600">
-            </div>
-            
-            <div>
-              <label class="block text-black font-semibold mb-2">Email Address</label>
-              <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-red-600">
-            </div>
-            
-            <div>
-              <label class="block text-black font-semibold mb-2">Message</label>
-              <textarea name="message" rows="6" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-red-600"></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary w-full">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-black text-white py-12 px-4 border-t-2 border-red-600">
-    <div class="container max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <h4 class="font-bold text-red-600 mb-4">The Case</h4>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="hover:text-red-600 transition">Home</a></li>
-            <li><a href="evidence-vault.html" class="hover:text-red-600 transition">Evidence Vault</a></li>
-            <li><a href="timeline.html" class="hover:text-red-600 transition">Timeline</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="font-bold text-red-600 mb-4">Get Involved</h4>
-          <ul class="space-y-2">
-            <li><a href="vigil.html" class="hover:text-red-600 transition">Digital Vigil</a></li>
-            <li><a href="gallery.html" class="hover:text-red-600 transition">Memorial Gallery</a></li>
-            <li><a href="#contact" class="hover:text-red-600 transition">Contact Us</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="font-bold text-red-600 mb-4">Resources</h4>
-          <ul class="space-y-2">
-            <li><a href="mmip-resources.html" class="hover:text-red-600 transition">MMIP Resources</a></li>
-            <li><a href="youtube.html" class="hover:text-red-600 transition">Watch Guard Videos</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="font-bold text-red-600 mb-4">Made with Manus</h4>
-          <p class="text-sm text-gray-400">This website is dedicated to justice for Cole Stump and all Missing and Murdered Indigenous People.</p>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-        <p>&copy; 2026 Justice for Cole Stump. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-  <script>
-    function toggleCollapsible(btn) {
-      btn.classList.toggle('active');
-      const content = btn.nextElementSibling;
-      content.classList.toggle('active');
-    }
-
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileNav');
-      menu.classList.toggle('hidden');
-    }
-
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      alert('Thank you for your message. We will respond soon.');
-      event.target.reset();
-    }
-  </script>
-</body>
-</html>
-< Cache bust: 1779316894 -->
+  return {
+    ...state,
+    refresh: () => meQuery.refetch(),
+    logout,
+  };
+}
