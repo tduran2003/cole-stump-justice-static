@@ -804,6 +804,63 @@
                 padding: 1rem 1.5rem;
             }
         }
+
+        /* Memorial Section */
+        .memorial-section {
+            padding: 5rem 2rem;
+            background-color: #f9fafb;
+            border-top: 4px solid #dc2626;
+        }
+
+        .memorial-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .memorial-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .memorial-photo {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: 3px solid #dc2626;
+        }
+
+        .memorial-photo:hover {
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .memorial-photo img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .memorial-quote {
+            background-color: #fff;
+            border-left: 4px solid #dc2626;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-style: italic;
+            color: #666;
+            text-align: center;
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -812,6 +869,7 @@
         <div class="nav-brand">Justice for Cole</div>
         <ul class="nav-links">
             <li><a href="#case">Case</a></li>
+            <li><a href="#memorial">Memorial</a></li>
             <li><a href="#mission">Mission</a></li>
             <li><a href="#vault">Evidence</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -827,6 +885,37 @@
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Take Action →</a>
                 <a href="#case" class="btn btn-secondary">Learn the Facts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memorial Section -->
+    <section class="memorial-section" id="memorial">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-accent"></div>
+                <h2>In Memory of Cole Forrest Stump</h2>
+            </div>
+            
+            <p class="memorial-intro">Cole Forrest Stump was a 29-year-old father of five, a member of the Chippewa-Cree Tribe from Rocky Boy Reservation, and a beloved member of his community. He was killed by Billings Police on October 12, 2020, while committing no crime. We honor his memory and the lives he touched.</p>
+            
+            <div class="memorial-gallery">
+                <div class="memorial-photo">
+                    <img src="/documents/cole-photo-1.jpg" alt="Cole Forrest Stump - Memorial Photo 1">
+                </div>
+                <div class="memorial-photo">
+                    <img src="/documents/cole-photo-2.jpg" alt="Cole Forrest Stump - Memorial Photo 2">
+                </div>
+                <div class="memorial-photo">
+                    <img src="/documents/cole-photo-3.jpg" alt="Cole Forrest Stump - Memorial Photo 3">
+                </div>
+                <div class="memorial-photo">
+                    <img src="/documents/cole-photo-4.jpg" alt="Cole Forrest Stump - Memorial Photo 4">
+                </div>
+            </div>
+            
+            <div class="memorial-quote">
+                "Cole deserves justice. His memory will not be forgotten, and his story will continue to demand accountability."
             </div>
         </div>
     </section>
