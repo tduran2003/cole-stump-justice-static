@@ -512,6 +512,59 @@
             flex-wrap: wrap;
         }
 
+        /* YouTube Section */
+        .youtube-section {
+            padding: 5rem 2rem;
+            background-color: #000;
+            border-top: 4px solid #dc2626;
+        }
+
+        .youtube-intro {
+            text-align: center;
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .youtube-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background-color: #dc2626;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .youtube-btn:hover {
+            background-color: #b91c1c;
+            transform: scale(1.05);
+        }
+
+        .youtube-icon {
+            font-size: 1.5rem;
+        }
+
+        .youtube-description {
+            color: #999;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
         /* Advocacy Section */
         .advocacy-section {
             padding: 5rem 2rem;
@@ -1156,6 +1209,26 @@
             <div class="cta-buttons">
                 <button class="btn btn-primary" style="background-color: #fff; color: #dc2626;">❤️ Sign the Petition</button>
                 <button class="btn btn-secondary" style="border-color: #fff;">Contact Officials</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Dash Cam Section -->
+    <section class="youtube-section" id="videos">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-accent"></div>
+                <h2>Dash Cam Evidence</h2>
+            </div>
+            
+            <p class="youtube-intro">Watch the dash cam footage and investigative videos documenting Cole's case.</p>
+            
+            <div class="youtube-container">
+                <a href="https://youtube.com/@tasheenaduran7530?si=Lr9a5iWz4Z6ZFM7i" target="_blank" class="youtube-btn">
+                    <span class="youtube-icon">▶️</span>
+                    <span>Watch on YouTube</span>
+                </a>
+                <p class="youtube-description">Tasheen Duran's Channel - Dash cam footage and investigative evidence</p>
             </div>
         </div>
     </section>
