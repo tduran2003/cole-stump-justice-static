@@ -512,6 +512,94 @@
             flex-wrap: wrap;
         }
 
+        /* Advocacy Section */
+        .advocacy-section {
+            padding: 5rem 2rem;
+            background-color: #f9fafb;
+            border-top: 4px solid #dc2626;
+        }
+
+        .advocacy-intro {
+            text-align: center;
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .advocacy-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .advocacy-option {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #dc2626;
+            transition: all 0.3s;
+        }
+
+        .advocacy-option:hover {
+            box-shadow: 0 10px 15px rgba(220, 38, 38, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .advocacy-option h3 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 0.75rem;
+        }
+
+        .advocacy-option p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .advocacy-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .advocacy-btn-email {
+            background-color: #dc2626;
+            color: #fff;
+        }
+
+        .advocacy-btn-email:hover {
+            background-color: #b91c1c;
+        }
+
+        .advocacy-btn-download {
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #dc2626;
+        }
+
+        .advocacy-btn-download:hover {
+            background-color: #1f2937;
+        }
+
         /* Contact Section */
         .contact-section {
             padding: 5rem 2rem;
@@ -1068,6 +1156,34 @@
             <div class="cta-buttons">
                 <button class="btn btn-primary" style="background-color: #fff; color: #dc2626;">❤️ Sign the Petition</button>
                 <button class="btn btn-secondary" style="border-color: #fff;">Contact Officials</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advocacy Letter Section -->
+    <section class="advocacy-section" id="advocacy">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-accent"></div>
+                <h2>Take Action: Montana Attorney General</h2>
+            </div>
+            
+            <p class="advocacy-intro">You can either click the button to email your support directly or download the template to print, sign, and mail.</p>
+            
+            <div class="advocacy-options">
+                <div class="advocacy-option">
+                    <div class="option-icon">✉️</div>
+                    <h3>Email Directly</h3>
+                    <p>Send your support to the Montana Attorney General with one click.</p>
+                    <a href="mailto:contactdoj@mt.gov?subject=Urgent%20Request%20for%20Transparency%20-%20Case%20of%20Cole%20Forrest%20Stump" class="advocacy-btn advocacy-btn-email">Email the Attorney General Now</a>
+                </div>
+                
+                <div class="advocacy-option">
+                    <div class="option-icon">📄</div>
+                    <h3>Print & Mail</h3>
+                    <p>Download the letter template to print, sign, and mail to the Attorney General's office.</p>
+                    <a href="/documents/advocacy-letter-template.pdf" download class="advocacy-btn advocacy-btn-download">Download/Print Letter Template</a>
+                </div>
             </div>
         </div>
     </section>
