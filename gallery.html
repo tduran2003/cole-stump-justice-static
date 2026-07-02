@@ -65,7 +65,7 @@
       font-size: 2rem;
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       gap: 1rem;
@@ -95,32 +95,30 @@
 </head>
 <body>
   <!-- Navigation Header -->
-  <header class="bg-black text-white sticky top-0 z-50 border-b-2 border-red-600">
-    <div class="container max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between py-4">
-        <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
-          <div class="w-1 h-6 bg-red-600"></div>
-          <span class="font-bold text-lg text-white">Justice for Cole</span>
-        </a>
-        <button class="menu-toggle md:hidden" onclick="toggleMobileMenu()">☰</button>
-        <nav class="hidden md:flex gap-8">
-          <a href="index.html" class="text-white font-semibold hover:text-red-600 transition">Home</a>
-          <a href="evidence-vault.html" class="text-white font-semibold hover:text-red-600 transition">Evidence Vault</a>
-          <a href="timeline.html" class="text-white font-semibold hover:text-red-600 transition">Timeline</a>
-          <a href="vigil.html" class="text-white font-semibold hover:text-red-600 transition">Digital Vigil</a>
-          <a href="gallery.html" class="text-red-600 font-semibold hover:text-white transition">Memorial Gallery</a>
-          <a href="youtube.html" class="text-white font-semibold hover:text-red-600 transition">Watch Guard Videos</a>
-          <a href="mmip-resources.html" class="text-white font-semibold hover:text-red-600 transition">MMIP Resources</a>
-        </nav>
-      </div>
-      <nav class="mobile-nav hidden flex-col gap-2 pb-4" id="mobileNav">
-        <a href="index.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Home</a>
-        <a href="evidence-vault.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Evidence Vault</a>
-        <a href="timeline.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Timeline</a>
-        <a href="vigil.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Digital Vigil</a>
-        <a href="gallery.html" class="text-red-600 font-semibold hover:text-white transition block py-2">Memorial Gallery</a>
-        <a href="youtube.html" class="text-white font-semibold hover:text-red-600 transition block py-2">Watch Guard Videos</a>
-        <a href="mmip-resources.html" class="text-white font-semibold hover:text-red-600 transition block py-2">MMIP Resources</a>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-bar"></div>
+        Justice for Cole
+      </a>
+      <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+      <nav id="desktopNav">
+        <a href="index.html">Home</a>
+        <a href="evidence-vault.html">Evidence Vault</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="vigil.html">Digital Vigil</a>
+        <a href="gallery.html" style="color: #dc2626;">Memorial Gallery</a>
+        <a href="youtube.html">Watch Guard Videos</a>
+        <a href="mmip-resources.html">MMIP Resources</a>
+      </nav>
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="evidence-vault.html">Evidence Vault</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="vigil.html">Digital Vigil</a>
+        <a href="gallery.html">Memorial Gallery</a>
+        <a href="youtube.html">Watch Guard Videos</a>
+        <a href="mmip-resources.html">MMIP Resources</a>
       </nav>
     </div>
   </header>
@@ -288,7 +286,7 @@
   <script>
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileNav');
-      menu.classList.toggle('hidden');
+      menu.classList.toggle('active');
     }
   </script>
 </body>
