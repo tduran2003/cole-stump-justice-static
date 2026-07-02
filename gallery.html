@@ -6,6 +6,45 @@
   <title>Memorial Gallery - Justice for Cole Stump</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .gallery-item {
+      background-color: #1f2937;
+      border: 2px solid #dc2626;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .gallery-caption h3 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-caption p {
+      font-size: 0.9rem;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Header -->
@@ -54,53 +93,105 @@
     <!-- Gallery Grid Section -->
     <section class="bg-black text-white py-16 px-4">
       <div class="container max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-white mb-8">Cole's Memory</h2>
+        <h2 class="text-3xl font-bold text-white mb-8">Cole's Memory and Community Advocacy</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <!-- Placeholder Gallery Items -->
-          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
-            <div class="text-center">
-              <p class="text-white font-semibold">Photo 1</p>
-              <p class="text-gray-400 text-sm">Cole Stump Memorial</p>
+          <!-- Gallery Item 1 -->
+          <div class="gallery-item">
+            <img src="images/16e93bb2-affd-441f-a784-b522df48a712.jpg" alt="Memorial photograph - Cole Stump">
+            <div class="gallery-caption">
+              <h3>Cole Forrest Stump</h3>
+              <p>Memory of Cole Forrest Stump, a 29-year-old father of five from the Chippewa-Cree Tribe, Rocky Boy Reservation.</p>
             </div>
           </div>
           
-          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
-            <div class="text-center">
-              <p class="text-white font-semibold">Photo 2</p>
-              <p class="text-gray-400 text-sm">Community Gathering</p>
+          <!-- Gallery Item 2 -->
+          <div class="gallery-item">
+            <img src="images/177c93d0-5748-4438-ade6-e6ac65759dc4.jpg" alt="Community gathering for Cole Stump justice">
+            <div class="gallery-caption">
+              <h3>Community Support</h3>
+              <p>Community members gathering to advocate for justice and accountability in Cole's case.</p>
             </div>
           </div>
           
-          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
-            <div class="text-center">
-              <p class="text-white font-semibold">Photo 3</p>
-              <p class="text-gray-400 text-sm">Advocacy Event</p>
+          <!-- Gallery Item 3 -->
+          <div class="gallery-item">
+            <img src="images/51e4ca78-e648-46c8-b3a4-54bf4a2ee386.jpg" alt="Advocacy event for Cole Stump">
+            <div class="gallery-caption">
+              <h3>Advocacy in Action</h3>
+              <p>Moments from advocacy events raising awareness for justice in Cole's case and MMIP issues.</p>
             </div>
           </div>
           
-          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex items-center justify-center">
-            <div class="text-center">
-              <p class="text-white font-semibold">Photo 4</p>
-              <p class="text-gray-400 text-sm">Family Moment</p>
+          <!-- Gallery Item 4 -->
+          <div class="gallery-item">
+            <img src="images/98231e42-ffa9-47ed-83b3-cd346302ee7e.jpg" alt="Family and supporters memorial">
+            <div class="gallery-caption">
+              <h3>Family Solidarity</h3>
+              <p>Family members and supporters gathered to honor Cole's memory and demand accountability.</p>
             </div>
           </div>
           
-          <!-- Replaced with Timeline Discrepancy image -->
-          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex flex-col items-center justify-center">
-            <img src="FB_IMG_1783001059383.jpg" alt="Screenshot of a Facebook post from 'The Big J Show' dated October 12 at 10:05 PM warning of police presence at Rose Park Apartments." style="max-width:100%;height:auto;border-radius:6px;" />
-            <div class="text-center mt-3">
-              <p class="text-white font-semibold">Timeline Discrepancy</p>
-              <p class="text-gray-400 text-sm">Screenshot of a Facebook post by "The Big J Show" (Oct 12, 10:05 PM) reporting heavy police presence near Rose Park Apartments.</p>
+          <!-- Gallery Item 5 -->
+          <div class="gallery-item">
+            <img src="images/a28ddfcd-f80a-4fe1-9ba7-849b7d2b50c7.jpg" alt="Vigil honoring Cole Stump">
+            <div class="gallery-caption">
+              <h3>Remembrance Vigil</h3>
+              <p>Candlelight vigil honoring Cole's life and the lives of Missing and Murdered Indigenous Persons (MMIP).</p>
             </div>
           </div>
           
-          <!-- Replaced with Bike Pump / Wrench image -->
-          <div class="bg-gray-900 border border-red-600 p-4 aspect-square flex flex-col items-center justify-center">
-            <img src="Screenshot_20260702-081832_Photos.png" alt="Close-up photo of Cole lying on pavement with a bicycle pump tucked into his front waistband and an adjustable wrench near his right hand." style="max-width:100%;height:auto;border-radius:6px;" />
-            <div class="text-center mt-3">
-              <p class="text-white font-semibold">Physical Evidence: Bike Pump & Wrench</p>
-              <p class="text-gray-400 text-sm">Close-up photograph showing a bicycle pump tucked into Cole's waistband and an adjustable wrench on the pavement near his hand.</p>
+          <!-- Gallery Item 6 -->
+          <div class="gallery-item">
+            <img src="images/acb6e3d8-3f6d-4f59-8055-b9c7618b5552.jpg" alt="Justice demonstration">
+            <div class="gallery-caption">
+              <h3>Justice Movement</h3>
+              <p>Community demonstrations demanding justice, transparency, and accountability for Cole's death.</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 7 -->
+          <div class="gallery-item">
+            <img src="images/c41c2ae0-bd7e-4bf4-92ca-570e751f4f77.jpg" alt="MMIP awareness event">
+            <div class="gallery-caption">
+              <h3>MMIP Awareness</h3>
+              <p>Events raising awareness for Missing and Murdered Indigenous Persons alongside Cole's case.</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 8 -->
+          <div class="gallery-item">
+            <img src="images/c452d908-eeca-431e-811e-057ccbe20818.jpg" alt="Community unity event">
+            <div class="gallery-caption">
+              <h3>Community Unity</h3>
+              <p>Unified community response demanding justice and reforms to prevent similar tragedies.</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 9 -->
+          <div class="gallery-item">
+            <img src="images/c54d59f4-99af-42a6-8e5f-3b71227ca277.jpg" alt="Cole's legacy">
+            <div class="gallery-caption">
+              <h3>Cole's Legacy</h3>
+              <p>Cole's legacy of love and his impact on our community continues through advocacy and justice work.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Discrepancy Evidence -->
+          <div class="gallery-item">
+            <img src="FB_IMG_1783001059383.jpg" alt="Screenshot of a Facebook post from 'The Big J Show' dated October 12 at 10:05 PM warning of police presence at Rose Park Apartments.">
+            <div class="gallery-caption">
+              <h3>Timeline Discrepancy</h3>
+              <p>Screenshot of a Facebook post by "The Big J Show" (Oct 12, 10:05 PM) reporting heavy police presence near Rose Park Apartments.</p>
+            </div>
+          </div>
+          
+          <!-- Bike Pump / Wrench Evidence -->
+          <div class="gallery-item">
+            <img src="Screenshot_20260702-081832_Photos.png" alt="Close-up photo of Cole lying on pavement with a bicycle pump tucked into his front waistband and an adjustable wrench near his right hand.">
+            <div class="gallery-caption">
+              <h3>Physical Evidence: Bike Pump & Wrench</h3>
+              <p>Close-up photograph showing a bicycle pump tucked into Cole's waistband and an adjustable wrench on the pavement near his hand.</p>
             </div>
           </div>
         </div>
